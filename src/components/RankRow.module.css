@@ -12,6 +12,20 @@
   background: var(--color-accent-100);
 }
 
+@media (min-width: 1024px) {
+  /* In the desktop card grid, the grid's own 1px gap (see RanksScreen's
+     .rowsGrid) draws the hairlines between cards — each card just needs a
+     solid ground so the divider color shows through the gap. */
+  .row {
+    border-bottom: none;
+    background: var(--color-bg);
+  }
+
+  .row:hover {
+    background: var(--color-accent-100);
+  }
+}
+
 .rank {
   width: 22px;
   flex: none;

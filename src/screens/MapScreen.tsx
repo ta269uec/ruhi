@@ -20,7 +20,7 @@ export function MapScreen() {
           const intl = slices.filter((s) => s.group === "International");
           const real = slices.filter((s) => s.group === "Real assets");
           return (
-            <>
+            <div className={styles.grid}>
               <div className={styles.blockFirst}>
                 <div className={`kicker ${styles.heading}`}>US size &amp; style</div>
                 <StyleBox by={by} />
@@ -41,7 +41,7 @@ export function MapScreen() {
                 <NamedMapGrid slices={real} />
                 <CheapRichLegend />
               </div>
-            </>
+            </div>
           );
         }}
       </DataStateGate>

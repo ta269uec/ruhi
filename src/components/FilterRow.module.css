@@ -23,6 +23,15 @@
   border-right: none;
 }
 
+@media (min-width: 1024px) {
+  /* Evenly-stretched segments look right on a narrow column; on a wide
+     desktop row they'd balloon into oversized pills, so cap them instead. */
+  .option {
+    flex: 0 0 auto;
+    padding: 11px 20px;
+  }
+}
+
 .optionActive {
   background: var(--color-accent);
   color: #fff;

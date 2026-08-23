@@ -4,6 +4,14 @@
   gap: 1px;
 }
 
+@media (min-width: 1024px) {
+  /* Full desktop width would stretch each value column absurdly wide
+     relative to the 54px cell height — cap it near its mobile proportions. */
+  .grid {
+    max-width: 420px;
+  }
+}
+
 .colHead {
   font: 500 9.5px var(--font-body);
   letter-spacing: .11em;

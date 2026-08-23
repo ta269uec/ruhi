@@ -10,6 +10,19 @@
   background: var(--color-accent-100);
 }
 
+@media (min-width: 1024px) {
+  /* The grid's own 1px gap (see NotesScreen's .cardsGrid) draws the
+     hairlines between cards, matching the RankRow/WatchRow treatment. */
+  .card {
+    border-bottom: none;
+    background: var(--color-bg);
+  }
+
+  .card:hover {
+    background: var(--color-accent-100);
+  }
+}
+
 .topRow {
   display: flex;
   align-items: center;

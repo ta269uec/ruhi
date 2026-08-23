@@ -23,6 +23,14 @@
   padding: 11px 12px;
 }
 
+@media (min-width: 1024px) {
+  /* Within the detail page's capped reading width, 4 columns fits comfortably
+     and halves the section's height. */
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
 .label {
   font: 500 9.5px var(--font-body);
   letter-spacing: .12em;

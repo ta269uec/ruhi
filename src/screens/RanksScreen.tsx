@@ -43,9 +43,11 @@ export function RanksScreen() {
                 total={slices.length}
               />
               <FilterRow active={filter} onChange={handleFilterChange} />
-              {rows.map((s, i) => (
-                <RankRow key={s.key} rank={i + 1} slice={s} />
-              ))}
+              <div className={styles.rowsGrid}>
+                {rows.map((s, i) => (
+                  <RankRow key={s.key} rank={i + 1} slice={s} />
+                ))}
+              </div>
               <div className={styles.footnote}>
                 Percentiles computed on forward P/E, CAPE and price/book blended equally, versus the slice's own
                 history since 2006. Real-asset slices use price and cost-curve percentiles instead of earnings

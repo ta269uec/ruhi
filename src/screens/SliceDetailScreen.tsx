@@ -56,65 +56,67 @@ export function SliceDetailScreen() {
     <div>
       <BackBar label={slice.group} fallback="/ranks" />
 
-      <div className={styles.hero}>
-        <div className={styles.name}>{slice.name}</div>
-        <div className={styles.pctRow}>
-          <div className={styles.bigPct} style={{ color: textInk(slice.pct) }}>
-            {slice.pct}
+      <div className={styles.page}>
+        <div className={styles.hero}>
+          <div className={styles.name}>{slice.name}</div>
+          <div className={styles.pctRow}>
+            <div className={styles.bigPct} style={{ color: textInk(slice.pct) }}>
+              {slice.pct}
+            </div>
+            <div className={styles.verdictCol}>
+              <VerdictBadge verdict={v} size="lg" />
+              <div className={styles.line}>{pctLine(slice.pct)}</div>
+            </div>
           </div>
-          <div className={styles.verdictCol}>
-            <VerdictBadge verdict={v} size="lg" />
-            <div className={styles.line}>{pctLine(slice.pct)}</div>
+        </div>
+
+        <PercentileChart sliceKey={slice.key} pct={slice.pct} />
+
+        <div className={styles.pair}>
+          <div className={styles.pairCell}>
+            <div className={styles.pairLabel}>From all-time high</div>
+            <div className={styles.pairValue}>{slice.ath}</div>
+            <div className={styles.pairSub}>ATH {slice.athDate}</div>
+          </div>
+          <div className={styles.pairCell}>
+            <div className={styles.pairLabel}>Worst drawdown, 20y</div>
+            <div className={styles.pairValue}>{slice.dd}</div>
+            <div className={styles.pairSub}>Peak to trough</div>
           </div>
         </div>
-      </div>
 
-      <PercentileChart sliceKey={slice.key} pct={slice.pct} />
+        <MetricsGrid slice={slice} />
 
-      <div className={styles.pair}>
-        <div className={styles.pairCell}>
-          <div className={styles.pairLabel}>From all-time high</div>
-          <div className={styles.pairValue}>{slice.ath}</div>
-          <div className={styles.pairSub}>ATH {slice.athDate}</div>
+        <div className={styles.returnsSection}>
+          <div className={styles.heading}>Annualised total return</div>
+          <div className={styles.returnsRow}>
+            {returns.map((t) => (
+              <div key={t.label} className={styles.returnCell}>
+                <div className={styles.returnLabel}>{t.label}</div>
+                <div className={styles.returnValue}>{t.val}</div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className={styles.pairCell}>
-          <div className={styles.pairLabel}>Worst drawdown, 20y</div>
-          <div className={styles.pairValue}>{slice.dd}</div>
-          <div className={styles.pairSub}>Peak to trough</div>
+
+        <div className={styles.commentary}>
+          <div className={styles.heading}>Why it is priced here</div>
+          <div className={styles.commentaryText}>{slice.take}</div>
+          {NARRATIVE_MODE && <div className={styles.commentaryText}>{slice.take2}</div>}
         </div>
-      </div>
 
-      <MetricsGrid slice={slice} />
-
-      <div className={styles.returnsSection}>
-        <div className={styles.heading}>Annualised total return</div>
-        <div className={styles.returnsRow}>
-          {returns.map((t) => (
-            <div key={t.label} className={styles.returnCell}>
-              <div className={styles.returnLabel}>{t.label}</div>
-              <div className={styles.returnValue}>{t.val}</div>
+        <div className={styles.risks}>
+          <div className={styles.heading}>Risk factors</div>
+          {slice.risks.map((text, i) => (
+            <div key={i} className={styles.riskRow}>
+              <span className={styles.riskNum}>{String(i + 1).padStart(2, "0")}</span>
+              <span className={styles.riskText}>{text}</span>
             </div>
           ))}
         </div>
-      </div>
 
-      <div className={styles.commentary}>
-        <div className={styles.heading}>Why it is priced here</div>
-        <div className={styles.commentaryText}>{slice.take}</div>
-        {NARRATIVE_MODE && <div className={styles.commentaryText}>{slice.take2}</div>}
+        <EtfTable etfs={slice.etfs} />
       </div>
-
-      <div className={styles.risks}>
-        <div className={styles.heading}>Risk factors</div>
-        {slice.risks.map((text, i) => (
-          <div key={i} className={styles.riskRow}>
-            <span className={styles.riskNum}>{String(i + 1).padStart(2, "0")}</span>
-            <span className={styles.riskText}>{text}</span>
-          </div>
-        ))}
-      </div>
-
-      <EtfTable etfs={slice.etfs} />
     </div>
   );
 }

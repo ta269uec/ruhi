@@ -162,3 +162,12 @@
   font-size: 14px;
   line-height: 1.5;
 }
+
+@media (min-width: 1024px) {
+  /* A slice profile reads like an article, not a dashboard — cap the width
+     rather than stretch it, but let it sit a bit wider than mobile. */
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+}

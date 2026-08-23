@@ -13,3 +13,19 @@
 .heading {
   margin-bottom: 9px;
 }
+
+@media (min-width: 1024px) {
+  /* US size & style and Real assets (with the legend) stay full width;
+     Income and International pair up in the space that frees. */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 56px;
+    align-items: start;
+  }
+
+  .blockFirst,
+  .blockLast {
+    grid-column: 1 / -1;
+  }
+}

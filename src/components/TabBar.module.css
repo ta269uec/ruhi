@@ -6,6 +6,13 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+@media (min-width: 1024px) {
+  /* The Sidebar carries navigation at this width. */
+  .bar {
+    display: none;
+  }
+}
+
 .tab {
   display: flex;
   flex-direction: column;

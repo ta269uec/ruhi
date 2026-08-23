@@ -7,6 +7,13 @@
   border-bottom: 1px solid var(--color-text);
 }
 
+@media (min-width: 1024px) {
+  /* The Sidebar carries the brand lockup + About link at this width. */
+  .bar {
+    display: none;
+  }
+}
+
 .left {
   display: flex;
   align-items: center;

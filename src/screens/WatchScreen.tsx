@@ -6,6 +6,7 @@ import { DataStateGate } from "../components/DataStateGate";
 import { useSliceData } from "../lib/DataContext";
 import { addWatchEntry, getWatchlist, removeWatchEntry, type WatchEntry } from "../lib/watchlist";
 import { setStoredTab } from "../lib/storage";
+import styles from "./WatchScreen.module.css";
 
 export function WatchScreen() {
   const { by, status } = useSliceData();
@@ -33,9 +34,11 @@ export function WatchScreen() {
       <DataStateGate>
         {({ slices }) => (
           <>
-            {entries.map((entry) => (
-              <WatchRow key={entry.key} entry={entry} by={by} onRemove={handleRemove} />
-            ))}
+            <div className={styles.rowsGrid}>
+              {entries.map((entry) => (
+                <WatchRow key={entry.key} entry={entry} by={by} onRemove={handleRemove} />
+              ))}
+            </div>
             <AddSliceForm slices={slices} excludedKeys={entries.map((e) => e.key)} onAdd={handleAdd} />
           </>
         )}

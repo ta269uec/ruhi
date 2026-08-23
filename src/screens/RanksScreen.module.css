@@ -5,3 +5,21 @@
   color: var(--color-neutral-600);
   border-top: 1px solid var(--color-divider);
 }
+
+@media (min-width: 1024px) {
+  /* A single column stretched to full desktop width reads badly — reflow
+     rows into a card grid instead, roughly at the row's original mobile
+     proportions per card. */
+  .rowsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 1px;
+    background: var(--color-divider);
+    border-top: 1px solid var(--color-divider);
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .footnote {
+    border-top: none;
+  }
+}
