@@ -1,0 +1,83 @@
+.wrap {
+  padding: 18px 20px 28px;
+}
+
+.primaryButton {
+  width: 100%;
+  padding: 13px;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  font: 600 12px var(--font-body);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.primaryButton:hover {
+  background: var(--color-accent-600);
+}
+
+.form {
+  border: 1px solid var(--color-divider);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field label {
+  display: block;
+  font: 500 9.5px var(--font-body);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--color-neutral-600);
+  margin-bottom: 5px;
+}
+
+.select,
+.numberInput {
+  width: 100%;
+  padding: 8px 10px;
+  font: 500 14px var(--font-body);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+}
+
+.select:focus-visible,
+.numberInput:focus-visible {
+  border-color: var(--color-accent);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions .primaryButton {
+  padding: 10px;
+}
+
+.cancelButton {
+  flex: none;
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px solid var(--color-divider);
+  color: var(--color-neutral-700);
+  font: 600 11px var(--font-body);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.cancelButton:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-100);
+}
+
+.empty {
+  font-size: 13px;
+  color: var(--color-neutral-600);
+  text-align: center;
+}

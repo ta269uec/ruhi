@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="stylesheet" href="_ds/industry-c07233cb-5e49-46a3-a59e-2c02c26655dc/styles.css"><script src="_ds/industry-c07233cb-5e49-46a3-a59e-2c02c26655dc/_ds_bundle.js"></script><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap"><style>body{margin:0;background:var(--color-bg);font-family:var(--font-body);color:var(--color-text)}a{color:var(--color-accent-700)}a:hover{color:var(--color-accent-800)}*{box-sizing:border-box}</style></helmet>
+
+<div style="max-width:1180px;margin:0 auto;padding:56px 56px 90px">
+
+<div style="display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--color-text);padding-bottom:18px">
+<div>
+<div style="font:600 10px var(--font-body);letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-700)">Branding exercise · 22 Aug 2026</div>
+<h1 style="font-family:var(--font-heading);font-weight:700;font-size:60px;line-height:.92;letter-spacing:.04em;margin:12px 0 0">RUHI</h1>
+</div>
+<div style="max-width:420px;font-size:14.5px;line-height:1.5;color:var(--color-neutral-700);text-wrap:pretty">A name, a descriptor, a mark, and the words that explain them. Read top to bottom; the decisions you need to make are marked <strong>DECIDE</strong>.</div>
+</div>
+
+<div style="display:grid;grid-template-columns:180px 1fr;gap:0;border-bottom:1px solid var(--color-divider);padding:34px 0">
+<div>
+<div style="font:600 10px var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-500)">01</div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.05;letter-spacing:.02em;margin-top:6px">Is Ruhi a<br>good name?</div>
+</div>
+<div>
+<div style="font-size:18px;line-height:1.45;max-width:720px;text-wrap:pretty">Yes — with one condition. It scores well on everything a name is actually for, and badly on the one thing you can fix with a descriptor.</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--color-divider);border:1px solid var(--color-divider);margin-top:22px">
+<sc-for list="{{ score }}" as="s" hint-placeholder-count="6">
+<div style="background:var(--color-bg);padding:14px 16px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+<div style="font-family:var(--font-heading);font-weight:600;font-size:17px;letter-spacing:.02em">{{ s.crit }}</div>
+<div style="{{ s.markStyle }}">{{ s.grade }}</div>
+</div>
+<div style="font-size:13.5px;line-height:1.45;color:var(--color-neutral-700);margin-top:5px">{{ s.note }}</div>
+</div>
+</sc-for>
+</div>
+<div style="position:relative;border:1px solid var(--color-accent);padding:18px 20px;margin-top:24px;max-width:760px">
+<i style="position:absolute;top:-4px;left:-4px;width:7px;height:7px;border-top:1px solid var(--color-accent);border-left:1px solid var(--color-accent)"></i>
+<i style="position:absolute;top:-4px;right:-4px;width:7px;height:7px;border-top:1px solid var(--color-accent);border-right:1px solid var(--color-accent)"></i>
+<i style="position:absolute;bottom:-4px;left:-4px;width:7px;height:7px;border-bottom:1px solid var(--color-accent);border-left:1px solid var(--color-accent)"></i>
+<i style="position:absolute;bottom:-4px;right:-4px;width:7px;height:7px;border-bottom:1px solid var(--color-accent);border-right:1px solid var(--color-accent)"></i>
+<div style="font:600 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-800)">The one weakness, stated plainly</div>
+<div style="font-size:16px;line-height:1.5;margin-top:8px;text-wrap:pretty">To an American investor, <em>Ruhi</em> means nothing on first contact. That is not fatal — <em>Vanguard</em>, <em>Betterment</em> and <em>Wealthfront</em> all had to teach their names too — but it means the name may never travel alone until it is known. Every appearance of RUHI carries a descriptor beneath it. That is the whole fix, and it is section 03.</div>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:180px 1fr;gap:0;border-bottom:1px solid var(--color-divider);padding:34px 0">
+<div>
+<div style="font:600 10px var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-500)">02</div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.05;letter-spacing:.02em;margin-top:6px">What the<br>name means</div>
+</div>
+<div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;max-width:900px">
+<div>
+<div style="font:600 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-800)">Layer one · soul</div>
+<div style="font-size:14.5px;line-height:1.5;margin-top:7px;color:var(--color-neutral-800)">Ruhi means soul. Your product strips a market slice down to its essence — forget the narrative, forget the ticker, what are you <em>paying</em>? A valuation app named after essence is a pun that never needs explaining.</div>
+</div>
+<div>
+<div style="font:600 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-800)">Layer two · not a finance word</div>
+<div style="font-size:14.5px;line-height:1.5;margin-top:7px;color:var(--color-neutral-800)">No <em>-vest</em>, no <em>-folio</em>, no <em>Capital</em>, no <em>Alpha</em>. Two syllables, four letters, one hard consonant. It is spellable after hearing it once, which is the only real test.</div>
+</div>
+<div>
+<div style="font:600 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-800)">Layer three · it's personal</div>
+<div style="font-size:14.5px;line-height:1.5;margin-top:7px;color:var(--color-neutral-800)">Founder-named products carry conviction. You never have to say whose name it is — one line on an About screen does more brand work than any agency tagline: <em>named for someone whose name means soul</em>.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:180px 1fr;gap:0;border-bottom:1px solid var(--color-divider);padding:34px 0">
+<div>
+<div style="font:600 10px var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-500)">03</div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.05;letter-spacing:.02em;margin-top:6px">The descriptor</div>
+<div style="font:600 9.5px var(--font-body);letter-spacing:.14em;padding:3px 6px;background:var(--color-accent);color:#fff;display:inline-block;margin-top:10px">DECIDE</div>
+</div>
+<div>
+<div style="font-size:18px;line-height:1.45;max-width:720px;text-wrap:pretty">A descriptor is not a tagline. It is two or three words locked to the wordmark, in every size, forever — the thing that makes RUHI legible to someone who has never heard it. It must say the category and the angle in one breath.</div>
+<div style="display:flex;flex-direction:column;gap:1px;background:var(--color-divider);border:1px solid var(--color-divider);margin-top:22px;max-width:900px">
+<sc-for list="{{ descriptors }}" as="d" hint-placeholder-count="5">
+<div style="background:var(--color-bg);padding:18px 20px;display:grid;grid-template-columns:290px 1fr 76px;gap:20px;align-items:center">
+<div>
+<div style="font-family:var(--font-heading);font-weight:700;font-size:26px;line-height:1;letter-spacing:.04em">RUHI</div>
+<div style="{{ d.descStyle }}">{{ d.text }}</div>
+</div>
+<div style="font-size:13.5px;line-height:1.45;color:var(--color-neutral-700)">{{ d.note }}</div>
+<div style="{{ d.verdictStyle }}">{{ d.verdict }}</div>
+</div>
+</sc-for>
+</div>
+<div style="font-size:14.5px;line-height:1.5;margin-top:18px;max-width:760px;text-wrap:pretty"><strong>My recommendation: “Price in perspective.”</strong> “Essence of price” is the truest translation of the name, but <em>essence</em> is a soft word in a category where people are deciding where money goes; American investors read it as wellness, not analysis. <em>Perspective</em> does the same job with a word that already means “relative to history” in the reader's head. Keep “the essence of price” — it is beautiful — as the opening line of your About screen, where the reader has already committed to reading.</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:180px 1fr;gap:0;border-bottom:1px solid var(--color-divider);padding:34px 0">
+<div>
+<div style="font:600 10px var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-500)">04</div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.05;letter-spacing:.02em;margin-top:6px">The mark</div>
+<div style="font:600 9.5px var(--font-body);letter-spacing:.14em;padding:3px 6px;background:var(--color-accent);color:#fff;display:inline-block;margin-top:10px">DECIDE</div>
+</div>
+<div>
+<div style="font-size:18px;line-height:1.45;max-width:720px;text-wrap:pretty">Three directions, all built from the same geometry the product already uses: a hairline, a range, and one solid square. No illustration, no abstract swoosh — the mark should be a measuring instrument, because that is what the app is.</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--color-divider);border:1px solid var(--color-divider);margin-top:22px">
+
+<div style="background:var(--color-bg);padding:24px 22px 22px">
+<div style="display:flex;align-items:baseline;justify-content:space-between">
+<div style="font:600 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-800)">A · Range mark</div>
+<div style="font:600 9.5px var(--font-body);letter-spacing:.13em;padding:3px 6px;background:var(--color-accent);color:#fff">PICK</div>
+</div>
+<div style="display:flex;justify-content:center;padding:26px 0 22px">
+<svg viewBox="0 0 64 64" style="width:96px;height:96px">
+<line x1="32" y1="6" x2="32" y2="58" stroke="var(--color-accent)" stroke-width="1.5"></line>
+<line x1="21" y1="6" x2="43" y2="6" stroke="var(--color-accent)" stroke-width="1.5"></line>
+<line x1="21" y1="58" x2="43" y2="58" stroke="var(--color-accent)" stroke-width="1.5"></line>
+<rect x="22" y="41" width="20" height="8" fill="var(--color-accent-800)"></rect>
+</svg>
+</div>
+<div style="font-size:13.5px;line-height:1.5;color:var(--color-neutral-800)">The twenty-year range as a capped vertical line, with today's price marked low in it. It is literally the product's one screen, reduced to four strokes. The bar can sit high or low — a living mark that could animate to the market it describes.</div>
+<div style="font-size:12.5px;line-height:1.45;color:var(--color-neutral-600);margin-top:9px">Survives to 16px. Reads as an instrument, not a logo. Risk: resembles a fader or an I-beam at a glance.</div>
+</div>
+
+<div style="background:var(--color-bg);padding:24px 22px 22px">
+<div style="font:600 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-800)">B · Plumb line</div>
+<div style="display:flex;justify-content:center;padding:26px 0 22px">
+<svg viewBox="0 0 64 64" style="width:96px;height:96px">
+<line x1="32" y1="6" x2="32" y2="36" stroke="var(--color-accent)" stroke-width="1.5"></line>
+<rect x="24" y="36" width="16" height="16" transform="rotate(45 32 44)" fill="var(--color-accent-800)"></rect>
+</svg>
+</div>
+<div style="font-size:13.5px;line-height:1.5;color:var(--color-neutral-800)">A plumb bob: the oldest tool for finding true. Says <em>this is what straight actually looks like</em> — the honesty half of your brand rather than the measurement half.</div>
+<div style="font-size:12.5px;line-height:1.45;color:var(--color-neutral-600);margin-top:9px">Most distinctive of the three and the warmest fit for “soul”. Risk: the metaphor needs a sentence; it says gravity, not valuation.</div>
+</div>
+
+<div style="background:var(--color-bg);padding:24px 22px 22px">
+<div style="font:600 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-800)">C · Aperture</div>
+<div style="display:flex;justify-content:center;padding:26px 0 22px">
+<svg viewBox="0 0 64 64" style="width:96px;height:96px">
+<rect x="10" y="10" width="44" height="44" fill="none" stroke="var(--color-accent)" stroke-width="1.5"></rect>
+<rect x="20" y="30" width="14" height="14" fill="var(--color-accent-800)"></rect>
+</svg>
+</div>
+<div style="font-size:13.5px;line-height:1.5;color:var(--color-neutral-800)">The system's own registration frame with a solid square inside it — the inner square is the price, the frame is the history it sits in. Cheapest to build and already used in the app bar.</div>
+<div style="font-size:12.5px;line-height:1.45;color:var(--color-neutral-600);margin-top:9px">Perfectly on-system and completely safe. Risk: generic — a square in a square is a hundred other brands.</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px">
+<div style="border:1px solid var(--color-divider);padding:20px">
+<div style="font:600 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:16px">Small-size test · A</div>
+<div style="display:flex;align-items:flex-end;gap:26px">
+<sc-for list="{{ sizes }}" as="z" hint-placeholder-count="4">
+<div style="text-align:center">
+<svg viewBox="0 0 64 64" style="{{ z.style }}">
+<line x1="32" y1="6" x2="32" y2="58" stroke="var(--color-accent)" stroke-width="2"></line>
+<line x1="21" y1="6" x2="43" y2="6" stroke="var(--color-accent)" stroke-width="2"></line>
+<line x1="21" y1="58" x2="43" y2="58" stroke="var(--color-accent)" stroke-width="2"></line>
+<rect x="22" y="41" width="20" height="9" fill="var(--color-accent-800)"></rect>
+</svg>
+<div style="font:500 9px var(--font-body);letter-spacing:.1em;color:var(--color-neutral-600);margin-top:8px">{{ z.label }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="border:1px solid var(--color-divider);padding:20px">
+<div style="font:600 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:16px">App icon · reversed on steel</div>
+<div style="display:flex;align-items:center;gap:20px">
+<div style="width:84px;height:84px;background:var(--color-accent-900);display:flex;align-items:center;justify-content:center">
+<svg viewBox="0 0 64 64" style="width:52px;height:52px">
+<line x1="32" y1="8" x2="32" y2="56" stroke="#f2f2f3" stroke-width="2"></line>
+<line x1="22" y1="8" x2="42" y2="8" stroke="#f2f2f3" stroke-width="2"></line>
+<line x1="22" y1="56" x2="42" y2="56" stroke="#f2f2f3" stroke-width="2"></line>
+<rect x="23" y="40" width="18" height="8" fill="#f2f2f3"></rect>
+</svg>
+</div>
+<div style="width:56px;height:56px;background:var(--color-accent);display:flex;align-items:center;justify-content:center">
+<svg viewBox="0 0 64 64" style="width:34px;height:34px">
+<line x1="32" y1="8" x2="32" y2="56" stroke="#fff" stroke-width="3"></line>
+<line x1="22" y1="8" x2="42" y2="8" stroke="#fff" stroke-width="3"></line>
+<line x1="22" y1="56" x2="42" y2="56" stroke="#fff" stroke-width="3"></line>
+<rect x="23" y="40" width="18" height="9" fill="#fff"></rect>
+</svg>
+</div>
+<div style="font-size:12.5px;line-height:1.45;color:var(--color-neutral-700);max-width:150px">One weight change only: strokes thicken as the mark shrinks. Never add a wordmark to the icon.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:180px 1fr;gap:0;border-bottom:1px solid var(--color-divider);padding:34px 0">
+<div>
+<div style="font:600 10px var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-500)">05</div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.05;letter-spacing:.02em;margin-top:6px">The lockup</div>
+</div>
+<div>
+<div style="font-size:18px;line-height:1.45;max-width:720px;text-wrap:pretty">This is the only assembly of name, mark and descriptor. Reproduce it; do not rebuild it. Clear space on all sides equals the cap height of RUHI.</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px">
+<div style="border:1px solid var(--color-divider);padding:34px 30px">
+<div style="font:600 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--color-neutral-500);margin-bottom:24px">Primary · horizontal</div>
+<div style="display:flex;align-items:center;gap:14px">
+<svg viewBox="0 0 64 64" style="width:40px;height:40px;flex:none">
+<line x1="32" y1="6" x2="32" y2="58" stroke="var(--color-accent)" stroke-width="2"></line>
+<line x1="21" y1="6" x2="43" y2="6" stroke="var(--color-accent)" stroke-width="2"></line>
+<line x1="21" y1="58" x2="43" y2="58" stroke="var(--color-accent)" stroke-width="2"></line>
+<rect x="22" y="41" width="20" height="9" fill="var(--color-accent-800)"></rect>
+</svg>
+<div>
+<div style="font-family:var(--font-heading);font-weight:700;font-size:38px;line-height:.92;letter-spacing:.14em">RUHI</div>
+<div style="{{ lockDesc }}">{{ descriptor }}</div>
+</div>
+</div>
+</div>
+<div style="border:1px solid var(--color-divider);padding:34px 30px;background:var(--color-accent-900)">
+<div style="font:600 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-300);margin-bottom:24px">Reversed · on steel</div>
+<div style="display:flex;align-items:center;gap:14px">
+<svg viewBox="0 0 64 64" style="width:40px;height:40px;flex:none">
+<line x1="32" y1="6" x2="32" y2="58" stroke="#f2f2f3" stroke-width="2"></line>
+<line x1="21" y1="6" x2="43" y2="6" stroke="#f2f2f3" stroke-width="2"></line>
+<line x1="21" y1="58" x2="43" y2="58" stroke="#f2f2f3" stroke-width="2"></line>
+<rect x="22" y="41" width="20" height="9" fill="#f2f2f3"></rect>
+</svg>
+<div>
+<div style="font-family:var(--font-heading);font-weight:700;font-size:38px;line-height:.92;letter-spacing:.14em;color:#f2f2f3">RUHI</div>
+<div style="font:600 10px var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--color-accent-300);margin-top:6px">{{ descriptor }}</div>
+</div>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px">
+<div style="border:1px solid var(--color-divider);padding:20px">
+<div style="font:600 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:12px">Do</div>
+<ul style="margin:0;padding-left:16px;font-size:13.5px;line-height:1.55;color:var(--color-neutral-800)">
+<li>Always set the descriptor with the wordmark, at one third its size, in Barlow, all caps, .2em tracking.</li>
+<li>Let the mark stand alone only where the name is already on screen — app icon, favicon, loading state.</li>
+<li>Keep it steel on paper, or paper on steel. Nothing else.</li>
+</ul>
+</div>
+<div style="border:1px solid var(--color-divider);padding:20px">
+<div style="font:600 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:12px">Don't</div>
+<ul style="margin:0;padding-left:16px;font-size:13.5px;line-height:1.55;color:var(--color-neutral-800)">
+<li>Don't set RUHI alone in marketing until the name is known — 12 to 18 months, minimum.</li>
+<li>Don't translate the name in the interface (“Ruhi, meaning soul…”) — the About screen is where that lives.</li>
+<li>Don't add a gradient, a rounded corner, or a second colour to the mark.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:180px 1fr;gap:0;border-bottom:1px solid var(--color-divider);padding:34px 0">
+<div>
+<div style="font:600 10px var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-500)">06</div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.05;letter-spacing:.02em;margin-top:6px">How Ruhi<br>talks</div>
+</div>
+<div>
+<div style="font-size:18px;line-height:1.45;max-width:720px;text-wrap:pretty">The voice is a good analyst who respects your time: declarative, numerate, never excited. It states the price, states the risk, and stops. It never uses the word <em>opportunity</em>.</div>
+<div style="display:flex;flex-direction:column;gap:1px;background:var(--color-divider);border:1px solid var(--color-divider);margin-top:22px;max-width:900px">
+<sc-for list="{{ voice }}" as="v" hint-placeholder-count="3">
+<div style="background:var(--color-bg);padding:16px 20px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div>
+<div style="font:600 9.5px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-neutral-500)">Not this</div>
+<div style="font-size:14.5px;line-height:1.45;color:var(--color-neutral-600);margin-top:5px;text-decoration:line-through;text-decoration-color:var(--color-neutral-400)">{{ v.bad }}</div>
+</div>
+<div>
+<div style="font:600 9.5px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800)">This</div>
+<div style="font-size:14.5px;line-height:1.45;margin-top:5px">{{ v.good }}</div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:180px 1fr;gap:0;border-bottom:1px solid var(--color-divider);padding:34px 0">
+<div>
+<div style="font:600 10px var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-500)">07</div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.05;letter-spacing:.02em;margin-top:6px">The About<br>copy</div>
+</div>
+<div>
+<div style="font-size:18px;line-height:1.45;max-width:720px;text-wrap:pretty">This text now sits behind the <strong>About</strong> link in the app. It is the only place the name explains itself.</div>
+<div style="position:relative;border:1px solid var(--color-text);padding:28px 30px;margin-top:22px;max-width:640px">
+<i style="position:absolute;top:-4px;left:-4px;width:7px;height:7px;border-top:1px solid var(--color-accent);border-left:1px solid var(--color-accent)"></i>
+<i style="position:absolute;top:-4px;right:-4px;width:7px;height:7px;border-top:1px solid var(--color-accent);border-right:1px solid var(--color-accent)"></i>
+<i style="position:absolute;bottom:-4px;left:-4px;width:7px;height:7px;border-bottom:1px solid var(--color-accent);border-left:1px solid var(--color-accent)"></i>
+<i style="position:absolute;bottom:-4px;right:-4px;width:7px;height:7px;border-bottom:1px solid var(--color-accent);border-right:1px solid var(--color-accent)"></i>
+<div style="font-family:var(--font-heading);font-weight:700;font-size:26px;line-height:1.1;letter-spacing:.02em">The essence of a price</div>
+<div style="font-size:15px;line-height:1.6;margin-top:14px;color:var(--color-neutral-800);text-wrap:pretty"><em>Ruhi</em> means soul. It is the right name for this app because a price is the only part of an investment you actually control, and almost the only part anyone ignores. Strip away the story, the ticker and the forecast, and what is left — what you paid, measured against everything that slice of the market has ever cost — is the thing that decides your return.</div>
+<div style="font-size:15px;line-height:1.6;margin-top:12px;color:var(--color-neutral-800);text-wrap:pretty">So Ruhi does one thing. It takes every slice of the market — the nine US size and style boxes, dividend and income, international developed and emerging, gold, silver, energy and the rest — and asks how expensive each one is today relative to its own twenty-year history. Not against each other. Against itself.</div>
+<div style="font-size:15px;line-height:1.6;margin-top:12px;color:var(--color-neutral-800);text-wrap:pretty">Then it says so in plain English: what you are buying, why it is priced where it is, what could go wrong, and which funds own it and at what cost. It will not tell you what to buy. It will tell you what is cheap.</div>
+<div style="border-top:1px solid var(--color-divider);margin-top:20px;padding-top:14px;font-size:14px;line-height:1.55;color:var(--color-neutral-700);font-style:italic">Named for someone whose name means soul.</div>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:180px 1fr;gap:0;padding:34px 0 0">
+<div>
+<div style="font:600 10px var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-500)">08</div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:22px;line-height:1.05;letter-spacing:.02em;margin-top:6px">Before you<br>commit</div>
+</div>
+<div>
+<div style="font-size:18px;line-height:1.45;max-width:720px;text-wrap:pretty">Four checks I cannot do for you, in the order they matter. Do them before you print anything.</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--color-divider);border:1px solid var(--color-divider);margin-top:22px;max-width:900px">
+<sc-for list="{{ checks }}" as="c" hint-placeholder-count="4">
+<div style="background:var(--color-bg);padding:16px 18px">
+<div style="font-family:var(--font-heading);font-weight:600;font-size:17px;letter-spacing:.02em">{{ c.title }}</div>
+<div style="font-size:13.5px;line-height:1.5;color:var(--color-neutral-700);margin-top:5px">{{ c.body }}</div>
+</div>
+</sc-for>
+</div>
+<div style="font-size:14.5px;line-height:1.55;margin-top:22px;max-width:760px;color:var(--color-neutral-800);text-wrap:pretty">One last piece of guidance, since you asked whether this makes sense: it does, and the reason is not the pun. It is that you will spend years on this product, and a name you care about is a name you will defend, explain and keep consistent. That is 90% of what branding actually is. The other 10% is on this page.</div>
+<div style="margin-top:26px;padding-top:18px;border-top:1px solid var(--color-text);font-size:13px;color:var(--color-neutral-600)">Companion to the app prototype: <a href="Ruhi.dc.html">Ruhi.dc.html</a></div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;descriptor&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;PRICE IN PERSPECTIVE&quot;,&quot;THE ESSENCE OF PRICE&quot;,&quot;WHAT YOU PAY MATTERS MOST&quot;,&quot;VALUATION IN PLAIN ENGLISH&quot;],&quot;default&quot;:&quot;PRICE IN PERSPECTIVE&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand&quot;}}">
+const DESCRIPTORS = [
+  { text: "PRICE IN PERSPECTIVE", verdict: "PICK", note: "Says the category (price) and the whole method (relative to history) in three words. “Perspective” already means “compared with what came before” to a US reader. Calm, adult, unhypeable." },
+  { text: "THE ESSENCE OF PRICE", verdict: "KEEP", note: "The most faithful translation of the name, and the line to open the About screen with. As a permanent descriptor, “essence” reads soft and slightly spiritual next to a number — wrong register for where money goes." },
+  { text: "WHAT YOU PAY MATTERS MOST", verdict: "ALT", note: "The most immediately understood of the five, and the closest to the Buffett idea. Longer than a descriptor should be — it is really a tagline, so use it in the app store listing and on the site hero." },
+  { text: "VALUATION IN PLAIN ENGLISH", verdict: "ALT", note: "Explains the product perfectly and the differentiator honestly. Weakness: it describes the writing, not the insight — and “plain English” is a crowded promise in fintech." },
+  { text: "KNOW WHAT YOU'RE PAYING FOR", verdict: "NO", note: "Reads as a fee-transparency product, which is a different company. Avoid." }
+];
+const SCORE = [
+  { crit: "Distinctive", grade: "STRONG", note: "Nothing else in US retail finance is called this. Ownable in a category of near-identical names." },
+  { crit: "Sayable & spellable", grade: "STRONG", note: "Two syllables, four letters, no ambiguity after hearing it once. Passes the radio test." },
+  { crit: "Meaningful", grade: "STRONG", note: "Soul → essence → the essence of an investment is its price. The pun holds all the way down." },
+  { crit: "Extensible", grade: "GOOD", note: "Ruhi Screener, Ruhi Notes, Ruhi Pro all work. The name constrains nothing." },
+  { crit: "Instantly understood", grade: "WEAK", note: "Means nothing to a US investor on first contact. This is what the descriptor exists to fix." },
+  { crit: "Personal conviction", grade: "STRONG", note: "You will still care about this name in year five. Most founders cannot say that." }
+];
+const VOICE = [
+  { bad: "Unlock the hidden opportunity in emerging market value!", good: "EM Value sits at the 15th percentile of its own 20-year range. The discount is compensation for governance and currency risk." },
+  { bad: "Our proprietary algorithm identifies undervalued sectors.", good: "We rank each slice against its own history on forward P/E, CAPE and price-to-book, equally weighted." },
+  { bad: "Gold is on a tear — don't miss out.", good: "Gold's real price is at the 88th percentile. There are no earnings to grow into it." }
+];
+const CHECKS = [
+  { title: "Trademark search", body: "Search USPTO TESS for “Ruhi” in class 36 (financial services) and class 42 (software). A live mark in either class is the one thing that can kill the name." },
+  { title: "Domain and handles", body: "ruhi.com is almost certainly taken. Plan for ruhi.app, getruhi.com or ruhiapp.com, and secure the same handle everywhere before launch." },
+  { title: "Say it to ten Americans", body: "Ask them to spell it and to guess what the company does. Spelling should be near-perfect; guessing will fail — that is expected, and it is what the descriptor is measured against." },
+  { title: "Regulatory language", body: "“What is cheap” is a valuation statement, not advice. Have counsel review the verdict badges and commentary before launch; the Cheap/Fair/Rich labels are the exposure." }
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    const chosen = this.props.descriptor ?? "PRICE IN PERSPECTIVE";
+    const gradeStyle = g => ({
+      font: "600 9.5px var(--font-body)", letterSpacing: ".13em", padding: "3px 6px", flex: "none",
+      background: g === "STRONG" ? "var(--color-accent)" : g === "GOOD" ? "var(--color-accent-200)" : "transparent",
+      color: g === "STRONG" ? "#fff" : g === "GOOD" ? "var(--color-accent-800)" : "var(--color-neutral-800)",
+      border: g === "WEAK" ? "1px solid var(--color-neutral-700)" : "none"
+    });
+    return {
+      descriptor: chosen,
+      lockDesc: { font: "600 11px var(--font-body)", letterSpacing: ".2em", textTransform: "uppercase", color: "var(--color-accent-700)", marginTop: "6px" },
+      score: SCORE.map(s => ({ crit: s.crit, grade: s.grade, note: s.note, markStyle: gradeStyle(s.grade) })),
+      voice: VOICE,
+      checks: CHECKS,
+      sizes: [{ label: "48", style: { width: "48px", height: "48px" } }, { label: "32", style: { width: "32px", height: "32px" } }, { label: "24", style: { width: "24px", height: "24px" } }, { label: "16", style: { width: "16px", height: "16px" } }],
+      descriptors: DESCRIPTORS.map(d => ({
+        text: d.text, note: d.note, verdict: d.verdict,
+        descStyle: {
+          font: "600 10.5px var(--font-body)", letterSpacing: ".2em", textTransform: "uppercase", marginTop: "6px",
+          color: d.text === chosen ? "var(--color-accent-700)" : "var(--color-neutral-500)"
+        },
+        verdictStyle: {
+          font: "600 9.5px var(--font-body)", letterSpacing: ".13em", padding: "4px 7px", textAlign: "center",
+          background: d.verdict === "PICK" ? "var(--color-accent)" : d.verdict === "KEEP" ? "var(--color-accent-200)" : "transparent",
+          color: d.verdict === "PICK" ? "#fff" : d.verdict === "KEEP" ? "var(--color-accent-800)" : "var(--color-neutral-700)",
+          border: d.verdict === "PICK" || d.verdict === "KEEP" ? "none" : "1px solid var(--color-neutral-400)"
+        }
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

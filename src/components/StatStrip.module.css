@@ -1,0 +1,33 @@
+.strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.cell {
+  padding: 12px 14px;
+  border-right: 1px solid var(--color-divider);
+  min-width: 0;
+}
+
+.cell:last-child {
+  border-right: none;
+}
+
+.label {
+  font: 500 9.5px var(--font-body);
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--color-neutral-600);
+}
+
+.value {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.1;
+  margin-top: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

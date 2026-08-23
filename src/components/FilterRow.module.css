@@ -1,0 +1,29 @@
+.row {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--color-divider);
+  overflow-x: auto;
+}
+
+.option {
+  flex: 1 0 auto;
+  padding: 11px 14px;
+  background: transparent;
+  color: var(--color-neutral-700);
+  border: none;
+  border-right: 1px solid var(--color-divider);
+  font: 600 10.5px var(--font-body);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.option:last-child {
+  border-right: none;
+}
+
+.optionActive {
+  background: var(--color-accent);
+  color: #fff;
+}

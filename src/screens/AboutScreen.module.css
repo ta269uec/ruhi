@@ -1,0 +1,88 @@
+.logoRow {
+  display: flex;
+  justify-content: center;
+  padding: 34px 0 22px;
+}
+
+.wordmarkBlock {
+  padding: 0 24px 8px;
+}
+
+.copy {
+  padding: 22px 24px 0;
+}
+
+.headline {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: .01em;
+}
+
+.paragraph {
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin-top: 12px;
+  color: var(--color-neutral-800);
+}
+
+.epigraph {
+  margin: 22px 24px 0;
+  border-left: 2px solid var(--color-accent);
+  padding: 2px 0 2px 14px;
+}
+
+.quote {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.attribution {
+  font: 500 10px var(--font-body);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-neutral-600);
+  margin-top: 5px;
+}
+
+.method {
+  margin: 24px 24px 0;
+  border-top: 1px solid var(--color-divider);
+  padding-top: 16px;
+}
+
+.methodHeading {
+  font: 600 10px var(--font-body);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-accent-800);
+}
+
+.methodBody {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-neutral-700);
+  margin-top: 7px;
+}
+
+.closingLine {
+  margin: 20px 24px 0;
+  border-top: 1px solid var(--color-divider);
+  padding-top: 16px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--color-neutral-700);
+  font-style: italic;
+}
+
+.disclaimer {
+  margin: 20px 24px 34px;
+  border-top: 1px solid var(--color-divider);
+  padding-top: 16px;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--color-neutral-600);
+}

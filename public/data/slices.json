@@ -1,0 +1,1267 @@
+{
+  "asOf": "23 Aug 2026",
+  "slices": [
+    {
+      "key": "uslg",
+      "name": "US Large Growth",
+      "group": "US size & style",
+      "pct": 96,
+      "fwdPE": "31.4",
+      "cape": "44.1",
+      "pb": "12.1",
+      "yld": "0.5%",
+      "eps": "+16%",
+      "ath": "-2%",
+      "athDate": "Jan 2026",
+      "dd": "-34%",
+      "r1": "+21%",
+      "r3": "+19%",
+      "r5": "+18%",
+      "r10": "+17.5%",
+      "vol": "19",
+      "corr": "0.97",
+      "flow": "+$48B",
+      "take": "Six or seven companies carry the index, and they are priced for the AI capital cycle to convert into durable operating profit. At the 96th percentile of its own twenty-year range, the slice is discounting execution, not hoping for it.",
+      "take2": "Nothing here is broken — earnings have genuinely compounded. The issue is arithmetic: buying at this multiple has historically front-loaded a decade of return into the price you pay today.",
+      "risks": [
+        "Top-ten weight near 55% of the index — this is a concentrated bet, not diversification",
+        "AI capital spending that does not convert to returns on invested capital",
+        "Multiple compression if long real rates move higher",
+        "Crowding — the same names sit inside most US core funds you already own"
+      ],
+      "etfs": [
+        {
+          "ticker": "VUG",
+          "name": "Vanguard Growth",
+          "expenseRatio": 0.04
+        },
+        {
+          "ticker": "SCHG",
+          "name": "Schwab US Large-Cap Growth",
+          "expenseRatio": 0.04
+        },
+        {
+          "ticker": "IWF",
+          "name": "iShares Russell 1000 Growth",
+          "expenseRatio": 0.19
+        }
+      ]
+    },
+    {
+      "key": "uslb",
+      "name": "US Large Blend",
+      "group": "US size & style",
+      "pct": 91,
+      "fwdPE": "22.6",
+      "cape": "38.2",
+      "pb": "5.2",
+      "yld": "1.2%",
+      "eps": "+11%",
+      "ath": "-1%",
+      "athDate": "Feb 2026",
+      "dd": "-34%",
+      "r1": "+14%",
+      "r3": "+14%",
+      "r5": "+15%",
+      "r10": "+13.8%",
+      "vol": "16",
+      "corr": "1.00",
+      "flow": "+$120B",
+      "take": "The default holding for most portfolios, and currently the 91st percentile of its own history. Growth's weight inside the blend index is doing most of the work.",
+      "take2": "Owning it is defensible; expecting the last decade's return from this entry point is not. Cap-weighting means you are buying more of what has already risen.",
+      "risks": [
+        "Growth concentration imported into a supposedly neutral holding",
+        "Margins at cycle highs — mean reversion would hit the E, not just the P/E",
+        "Passive flows reverse the same way they arrive"
+      ],
+      "etfs": [
+        {
+          "ticker": "VOO",
+          "name": "Vanguard S&P 500",
+          "expenseRatio": 0.03
+        },
+        {
+          "ticker": "SPLG",
+          "name": "SPDR Portfolio S&P 500",
+          "expenseRatio": 0.02
+        },
+        {
+          "ticker": "ITOT",
+          "name": "iShares Core S&P Total US",
+          "expenseRatio": 0.03
+        }
+      ]
+    },
+    {
+      "key": "uslv",
+      "name": "US Large Value",
+      "group": "US size & style",
+      "pct": 68,
+      "fwdPE": "17.2",
+      "cape": "26.4",
+      "pb": "2.9",
+      "yld": "2.2%",
+      "eps": "+7%",
+      "ath": "-3%",
+      "athDate": "Jan 2026",
+      "dd": "-32%",
+      "r1": "+11%",
+      "r3": "+11%",
+      "r5": "+12%",
+      "r10": "+9.6%",
+      "vol": "14",
+      "corr": "0.88",
+      "flow": "+$9B",
+      "take": "Cheaper than the blend on every multiple, but not cheap against its own history — value has re-rated alongside everything else. Financials and healthcare dominate the exposure.",
+      "take2": "The spread between value and growth multiples is wide; the absolute level of value is only middling. That combination argues for a tilt, not a wholesale move.",
+      "risks": [
+        "Financials are roughly a quarter of the index — this is a rate and credit bet",
+        "Value traps in structurally declining industries",
+        "Less earnings growth means the multiple has to do more of the work"
+      ],
+      "etfs": [
+        {
+          "ticker": "VTV",
+          "name": "Vanguard Value",
+          "expenseRatio": 0.04
+        },
+        {
+          "ticker": "SCHV",
+          "name": "Schwab US Large-Cap Value",
+          "expenseRatio": 0.04
+        },
+        {
+          "ticker": "IWD",
+          "name": "iShares Russell 1000 Value",
+          "expenseRatio": 0.19
+        }
+      ]
+    },
+    {
+      "key": "usmg",
+      "name": "US Mid Growth",
+      "group": "US size & style",
+      "pct": 74,
+      "fwdPE": "24.8",
+      "cape": "30.1",
+      "pb": "5.4",
+      "yld": "0.7%",
+      "eps": "+12%",
+      "ath": "-8%",
+      "athDate": "Nov 2025",
+      "dd": "-41%",
+      "r1": "+9%",
+      "r3": "+8%",
+      "r5": "+11%",
+      "r10": "+10.9%",
+      "vol": "20",
+      "corr": "0.92",
+      "flow": "-$2B",
+      "take": "Mid growth trades at a premium to its history without the mega-cap balance sheets that justify the large-cap premium. It is the least well-supported rich corner of the domestic grid.",
+      "take2": "Many constituents are unprofitable or thinly profitable, so the multiple rests on forecasts several years out.",
+      "risks": [
+        "Refinancing at higher rates for companies without cash fortresses",
+        "Earnings estimates that historically get cut in the second half",
+        "Thinner liquidity in drawdowns than large caps"
+      ],
+      "etfs": [
+        {
+          "ticker": "VOT",
+          "name": "Vanguard Mid-Cap Growth",
+          "expenseRatio": 0.07
+        },
+        {
+          "ticker": "IMCG",
+          "name": "iShares Morningstar Mid-Cap Growth",
+          "expenseRatio": 0.06
+        },
+        {
+          "ticker": "IWP",
+          "name": "iShares Russell Mid-Cap Growth",
+          "expenseRatio": 0.23
+        }
+      ]
+    },
+    {
+      "key": "usmb",
+      "name": "US Mid Blend",
+      "group": "US size & style",
+      "pct": 55,
+      "fwdPE": "18.1",
+      "cape": "24.7",
+      "pb": "2.8",
+      "yld": "1.5%",
+      "eps": "+8%",
+      "ath": "-6%",
+      "athDate": "Nov 2025",
+      "dd": "-40%",
+      "r1": "+8%",
+      "r3": "+8%",
+      "r5": "+10%",
+      "r10": "+9.8%",
+      "vol": "18",
+      "corr": "0.94",
+      "flow": "+$4B",
+      "take": "Sitting almost exactly at its twenty-year median, which is the most honest place on this grid. Mid caps have earnings growth close to large caps at two-thirds the multiple.",
+      "take2": "The forgotten middle: too small for the index-flow bid, too large to be a small-cap story.",
+      "risks": [
+        "More domestic-revenue exposure, so a US slowdown hits harder",
+        "Higher floating-rate debt than large caps",
+        "Index turnover pushes winners out into large-cap benchmarks"
+      ],
+      "etfs": [
+        {
+          "ticker": "VO",
+          "name": "Vanguard Mid-Cap",
+          "expenseRatio": 0.04
+        },
+        {
+          "ticker": "IJH",
+          "name": "iShares Core S&P Mid-Cap",
+          "expenseRatio": 0.05
+        },
+        {
+          "ticker": "SPMD",
+          "name": "SPDR Portfolio S&P 400",
+          "expenseRatio": 0.03
+        }
+      ]
+    },
+    {
+      "key": "usmv",
+      "name": "US Mid Value",
+      "group": "US size & style",
+      "pct": 41,
+      "fwdPE": "15.3",
+      "cape": "20.8",
+      "pb": "2.1",
+      "yld": "2.3%",
+      "eps": "+6%",
+      "ath": "-7%",
+      "athDate": "Nov 2025",
+      "dd": "-39%",
+      "r1": "+7%",
+      "r3": "+8%",
+      "r5": "+10%",
+      "r10": "+8.7%",
+      "vol": "17",
+      "corr": "0.90",
+      "flow": "+$1B",
+      "take": "Below its own median on a blended multiple, with a dividend yield that actually contributes to total return. Industrials and regional financials lead the weighting.",
+      "take2": "This is where cheapness and quality still overlap in the domestic market.",
+      "risks": [
+        "Regional bank credit quality, particularly commercial real estate",
+        "Cyclical earnings — the multiple looks lowest right before earnings fall",
+        "Slow re-rating: cheap can stay cheap for years"
+      ],
+      "etfs": [
+        {
+          "ticker": "VOE",
+          "name": "Vanguard Mid-Cap Value",
+          "expenseRatio": 0.07
+        },
+        {
+          "ticker": "IJJ",
+          "name": "iShares S&P Mid-Cap 400 Value",
+          "expenseRatio": 0.18
+        },
+        {
+          "ticker": "IWS",
+          "name": "iShares Russell Mid-Cap Value",
+          "expenseRatio": 0.23
+        }
+      ]
+    },
+    {
+      "key": "ussg",
+      "name": "US Small Growth",
+      "group": "US size & style",
+      "pct": 62,
+      "fwdPE": "22.9",
+      "cape": "25.6",
+      "pb": "4.3",
+      "yld": "0.4%",
+      "eps": "+10%",
+      "ath": "-14%",
+      "athDate": "Nov 2021",
+      "dd": "-46%",
+      "r1": "+5%",
+      "r3": "+4%",
+      "r5": "+8%",
+      "r10": "+8.9%",
+      "vol": "23",
+      "corr": "0.87",
+      "flow": "-$3B",
+      "take": "The multiple looks moderate only because loss-making constituents are excluded from the ratio. On a whole-index basis this is the least attractive risk-adjusted corner.",
+      "take2": "Two-fifths of the underlying names do not earn money, which makes the aggregate P/E a flattering statistic.",
+      "risks": [
+        "A large share of unprofitable constituents",
+        "Rate sensitivity through floating-rate borrowing",
+        "Biotech binary outcomes drive a meaningful part of the index"
+      ],
+      "etfs": [
+        {
+          "ticker": "VBK",
+          "name": "Vanguard Small-Cap Growth",
+          "expenseRatio": 0.07
+        },
+        {
+          "ticker": "IWO",
+          "name": "iShares Russell 2000 Growth",
+          "expenseRatio": 0.24
+        },
+        {
+          "ticker": "XSMO",
+          "name": "Invesco S&P SmallCap Momentum",
+          "expenseRatio": 0.36
+        }
+      ]
+    },
+    {
+      "key": "ussb",
+      "name": "US Small Blend",
+      "group": "US size & style",
+      "pct": 33,
+      "fwdPE": "15.6",
+      "cape": "19.2",
+      "pb": "1.9",
+      "yld": "1.6%",
+      "eps": "+7%",
+      "ath": "-11%",
+      "athDate": "Nov 2021",
+      "dd": "-44%",
+      "r1": "+4%",
+      "r3": "+5%",
+      "r5": "+8%",
+      "r10": "+7.6%",
+      "vol": "21",
+      "corr": "0.89",
+      "flow": "-$1B",
+      "take": "Near the cheap end of its own range and roughly a third off large caps on forward earnings. The S&P 600 version screens better than the Russell 2000 because of its profitability requirement.",
+      "take2": "Small caps have de-rated for four years while earnings held up modestly — the gap is the opportunity.",
+      "risks": [
+        "Refinancing wall over the next 24 months",
+        "Domestic-economy sensitivity",
+        "Index construction matters more here than in any other slice"
+      ],
+      "etfs": [
+        {
+          "ticker": "IJR",
+          "name": "iShares Core S&P Small-Cap",
+          "expenseRatio": 0.06
+        },
+        {
+          "ticker": "VB",
+          "name": "Vanguard Small-Cap",
+          "expenseRatio": 0.05
+        },
+        {
+          "ticker": "SPSM",
+          "name": "SPDR Portfolio S&P 600",
+          "expenseRatio": 0.03
+        }
+      ]
+    },
+    {
+      "key": "ussv",
+      "name": "US Small Value",
+      "group": "US size & style",
+      "pct": 22,
+      "fwdPE": "12.4",
+      "cape": "15.1",
+      "pb": "1.3",
+      "yld": "2.4%",
+      "eps": "+5%",
+      "ath": "-12%",
+      "athDate": "Nov 2021",
+      "dd": "-45%",
+      "r1": "+3%",
+      "r3": "+6%",
+      "r5": "+9%",
+      "r10": "+7.1%",
+      "vol": "22",
+      "corr": "0.85",
+      "flow": "+$2B",
+      "take": "The cheapest domestic slice on the board, at the 22nd percentile of its own history and near book value on aggregate. The discount to large-cap growth is close to the widest since 2000.",
+      "take2": "Historically, entry points in this decile have preceded strong ten-year real returns — with several painful years inside them.",
+      "risks": [
+        "Balance-sheet fragility: leverage sits highest in this cohort",
+        "Long dead periods — the 2010s were a decade of underperformance",
+        "Screening on price alone catches genuinely impaired businesses"
+      ],
+      "etfs": [
+        {
+          "ticker": "AVUV",
+          "name": "Avantis US Small Cap Value",
+          "expenseRatio": 0.25
+        },
+        {
+          "ticker": "VBR",
+          "name": "Vanguard Small-Cap Value",
+          "expenseRatio": 0.07
+        },
+        {
+          "ticker": "DFSV",
+          "name": "Dimensional US Small Cap Value",
+          "expenseRatio": 0.3
+        }
+      ]
+    },
+    {
+      "key": "divg",
+      "name": "Dividend Growth",
+      "group": "Income & dividend",
+      "pct": 71,
+      "fwdPE": "21.0",
+      "cape": "29.6",
+      "pb": "4.0",
+      "yld": "1.7%",
+      "eps": "+8%",
+      "ath": "-3%",
+      "athDate": "Feb 2026",
+      "dd": "-33%",
+      "r1": "+11%",
+      "r3": "+10%",
+      "r5": "+11%",
+      "r10": "+11.2%",
+      "vol": "14",
+      "corr": "0.93",
+      "flow": "+$14B",
+      "take": "Quality compounders have become a crowded defensive trade, and the slice now trades above its own historical norm. The yield is low because the price is high.",
+      "take2": "You are buying reliability, and reliability is currently expensive.",
+      "risks": [
+        "Priced as a bond proxy in parts — sensitive to real rates",
+        "Dividend growth screens concentrate in staples and healthcare",
+        "Quality premium can compress without any dividend being cut"
+      ],
+      "etfs": [
+        {
+          "ticker": "VIG",
+          "name": "Vanguard Dividend Appreciation",
+          "expenseRatio": 0.05
+        },
+        {
+          "ticker": "DGRO",
+          "name": "iShares Core Dividend Growth",
+          "expenseRatio": 0.08
+        },
+        {
+          "ticker": "NOBL",
+          "name": "ProShares S&P 500 Dividend Aristocrats",
+          "expenseRatio": 0.35
+        }
+      ]
+    },
+    {
+      "key": "hidiv",
+      "name": "High Dividend Yield",
+      "group": "Income & dividend",
+      "pct": 38,
+      "fwdPE": "14.2",
+      "cape": "19.8",
+      "pb": "2.2",
+      "yld": "3.6%",
+      "eps": "+5%",
+      "ath": "-5%",
+      "athDate": "Feb 2026",
+      "dd": "-36%",
+      "r1": "+8%",
+      "r3": "+7%",
+      "r5": "+9%",
+      "r10": "+8.4%",
+      "vol": "13",
+      "corr": "0.82",
+      "flow": "+$6B",
+      "take": "Modestly below its own median with a yield that covers a real chunk of expected return. Energy, staples and financials carry the weight.",
+      "take2": "The screen buys yield, so it structurally avoids the expensive end of the market — that is the point, and also the constraint.",
+      "risks": [
+        "Yield screens pick up companies about to cut",
+        "Sector concentration in energy and staples",
+        "Underperforms badly in narrow growth-led markets"
+      ],
+      "etfs": [
+        {
+          "ticker": "SCHD",
+          "name": "Schwab US Dividend Equity",
+          "expenseRatio": 0.06
+        },
+        {
+          "ticker": "VYM",
+          "name": "Vanguard High Dividend Yield",
+          "expenseRatio": 0.06
+        },
+        {
+          "ticker": "HDV",
+          "name": "iShares Core High Dividend",
+          "expenseRatio": 0.08
+        }
+      ]
+    },
+    {
+      "key": "intdiv",
+      "name": "International Dividend",
+      "group": "Income & dividend",
+      "pct": 24,
+      "fwdPE": "11.3",
+      "cape": "13.9",
+      "pb": "1.4",
+      "yld": "4.6%",
+      "eps": "+6%",
+      "ath": "-6%",
+      "athDate": "Jul 2007",
+      "dd": "-42%",
+      "r1": "+12%",
+      "r3": "+9%",
+      "r5": "+8%",
+      "r10": "+5.2%",
+      "vol": "15",
+      "corr": "0.76",
+      "flow": "+$3B",
+      "take": "A 4.6% yield at the 24th percentile of its own valuation history. Non-US companies pay out more of their earnings, so the yield is structural rather than distressed.",
+      "take2": "Currency is half the story here — dollar weakness would add to the return, dollar strength would take from it.",
+      "risks": [
+        "Withholding tax drags on the headline yield in taxable accounts",
+        "Currency swings can exceed the yield in a single year",
+        "Heavier weighting to European banks and telecoms"
+      ],
+      "etfs": [
+        {
+          "ticker": "VYMI",
+          "name": "Vanguard International High Dividend Yield",
+          "expenseRatio": 0.17
+        },
+        {
+          "ticker": "IDV",
+          "name": "iShares International Select Dividend",
+          "expenseRatio": 0.49
+        },
+        {
+          "ticker": "SCHY",
+          "name": "Schwab International Dividend Equity",
+          "expenseRatio": 0.14
+        }
+      ]
+    },
+    {
+      "key": "covcall",
+      "name": "Covered-Call Income",
+      "group": "Income & dividend",
+      "pct": 57,
+      "fwdPE": "19.0",
+      "cape": "32.5",
+      "pb": "4.6",
+      "yld": "7.9%",
+      "eps": "+9%",
+      "ath": "-4%",
+      "athDate": "Feb 2026",
+      "dd": "-30%",
+      "r1": "+9%",
+      "r3": "+8%",
+      "r5": "+9%",
+      "r10": "+8.0%",
+      "vol": "11",
+      "corr": "0.85",
+      "flow": "+$18B",
+      "take": "The distribution is option premium, not earnings — it looks like yield and behaves like sold upside. Underlying equity is priced near the rich end of its history.",
+      "take2": "Volatility is low, so the premium being harvested is low too. This is the worst environment in which to sell it.",
+      "risks": [
+        "Distribution is not income in the tax sense and can fall sharply",
+        "Caps upside in exactly the markets equities need to work",
+        "Fees are five to ten times a plain index fund"
+      ],
+      "etfs": [
+        {
+          "ticker": "JEPI",
+          "name": "JPMorgan Equity Premium Income",
+          "expenseRatio": 0.35
+        },
+        {
+          "ticker": "JEPQ",
+          "name": "JPMorgan Nasdaq Equity Premium",
+          "expenseRatio": 0.35
+        },
+        {
+          "ticker": "DIVO",
+          "name": "Amplify CWP Enhanced Dividend",
+          "expenseRatio": 0.56
+        }
+      ]
+    },
+    {
+      "key": "intdev",
+      "name": "Developed Markets",
+      "group": "International",
+      "pct": 49,
+      "fwdPE": "14.6",
+      "cape": "19.1",
+      "pb": "1.9",
+      "yld": "2.9%",
+      "eps": "+8%",
+      "ath": "-4%",
+      "athDate": "Feb 2026",
+      "dd": "-38%",
+      "r1": "+13%",
+      "r3": "+11%",
+      "r5": "+9%",
+      "r10": "+6.1%",
+      "vol": "15",
+      "corr": "0.86",
+      "flow": "+$22B",
+      "take": "Right at its own median, and roughly a 35% multiple discount to the US. Part of that discount is composition — fewer software companies, more banks and industrials.",
+      "take2": "The relevant question is not whether it is cheaper than the US, but whether it is cheap against itself. It is not — it is ordinary.",
+      "risks": [
+        "Currency exposure is unhedged in these funds",
+        "Europe and Japan carry demographic and energy-cost headwinds",
+        "The discount to the US has persisted for fifteen years"
+      ],
+      "etfs": [
+        {
+          "ticker": "VEA",
+          "name": "Vanguard FTSE Developed Markets",
+          "expenseRatio": 0.05
+        },
+        {
+          "ticker": "IEFA",
+          "name": "iShares Core MSCI EAFE",
+          "expenseRatio": 0.07
+        },
+        {
+          "ticker": "SPDW",
+          "name": "SPDR Portfolio Developed World ex-US",
+          "expenseRatio": 0.03
+        }
+      ]
+    },
+    {
+      "key": "intdv",
+      "name": "Developed Value",
+      "group": "International",
+      "pct": 27,
+      "fwdPE": "11.8",
+      "cape": "14.6",
+      "pb": "1.3",
+      "yld": "4.1%",
+      "eps": "+7%",
+      "ath": "-5%",
+      "athDate": "Oct 2007",
+      "dd": "-41%",
+      "r1": "+15%",
+      "r3": "+12%",
+      "r5": "+9%",
+      "r10": "+5.0%",
+      "vol": "16",
+      "corr": "0.82",
+      "flow": "+$4B",
+      "take": "Under twelve times forward earnings at the 27th percentile of its own range, with a yield above four percent. Cheapness on this axis has historically mattered most over five to ten years.",
+      "take2": "Japanese and European corporate governance reform is a genuine, slow-moving catalyst rather than a story.",
+      "risks": [
+        "Bank-heavy exposure ties returns to European credit",
+        "Governance reform can stall for years",
+        "Value indices abroad hold more state-influenced companies"
+      ],
+      "etfs": [
+        {
+          "ticker": "EFV",
+          "name": "iShares MSCI EAFE Value",
+          "expenseRatio": 0.34
+        },
+        {
+          "ticker": "AVIV",
+          "name": "Avantis International Large Cap Value",
+          "expenseRatio": 0.25
+        },
+        {
+          "ticker": "IVLU",
+          "name": "iShares MSCI Intl Value Factor",
+          "expenseRatio": 0.3
+        }
+      ]
+    },
+    {
+      "key": "intsm",
+      "name": "Developed Small",
+      "group": "International",
+      "pct": 24,
+      "fwdPE": "13.1",
+      "cape": "15.8",
+      "pb": "1.2",
+      "yld": "3.3%",
+      "eps": "+6%",
+      "ath": "-12%",
+      "athDate": "Jun 2021",
+      "dd": "-46%",
+      "r1": "+10%",
+      "r3": "+7%",
+      "r5": "+6%",
+      "r10": "+5.4%",
+      "vol": "17",
+      "corr": "0.83",
+      "flow": "+$1B",
+      "take": "The most neglected equity slice on the board: small, foreign, and unowned. Trading near book value with a 3.3% yield.",
+      "take2": "Nobody markets this exposure, which is usually a precondition for it being cheap.",
+      "risks": [
+        "Wide bid-offer spreads and lower liquidity",
+        "Domestic-economy exposure in slow-growth countries",
+        "Currency adds volatility on top of small-cap volatility"
+      ],
+      "etfs": [
+        {
+          "ticker": "AVDV",
+          "name": "Avantis International Small Cap Value",
+          "expenseRatio": 0.36
+        },
+        {
+          "ticker": "SCZ",
+          "name": "iShares MSCI EAFE Small-Cap",
+          "expenseRatio": 0.4
+        },
+        {
+          "ticker": "VSS",
+          "name": "Vanguard FTSE All-World ex-US Small-Cap",
+          "expenseRatio": 0.08
+        }
+      ]
+    },
+    {
+      "key": "japan",
+      "name": "Japan",
+      "group": "International",
+      "pct": 58,
+      "fwdPE": "16.4",
+      "cape": "23.7",
+      "pb": "1.7",
+      "yld": "2.2%",
+      "eps": "+9%",
+      "ath": "-6%",
+      "athDate": "Aug 2026",
+      "dd": "-37%",
+      "r1": "+14%",
+      "r3": "+13%",
+      "r5": "+11%",
+      "r10": "+7.2%",
+      "vol": "16",
+      "corr": "0.70",
+      "flow": "+$9B",
+      "take": "Above its own median after a three-year re-rating driven by buybacks and cross-shareholding unwinds. Still under two times book, which flatters it relative to the multiple.",
+      "take2": "The reform story is real and is now partly in the price. Hedged and unhedged versions have diverged sharply — pick deliberately.",
+      "risks": [
+        "Yen direction dominates dollar returns",
+        "Reform momentum depends on continued exchange pressure",
+        "Domestic demographics cap long-run growth"
+      ],
+      "etfs": [
+        {
+          "ticker": "BBJP",
+          "name": "JPMorgan BetaBuilders Japan",
+          "expenseRatio": 0.19
+        },
+        {
+          "ticker": "EWJ",
+          "name": "iShares MSCI Japan",
+          "expenseRatio": 0.5
+        },
+        {
+          "ticker": "DXJ",
+          "name": "WisdomTree Japan Hedged Equity",
+          "expenseRatio": 0.48
+        }
+      ]
+    },
+    {
+      "key": "europe",
+      "name": "Europe",
+      "group": "International",
+      "pct": 44,
+      "fwdPE": "14.2",
+      "cape": "19.6",
+      "pb": "2.0",
+      "yld": "3.1%",
+      "eps": "+7%",
+      "ath": "-4%",
+      "athDate": "Feb 2026",
+      "dd": "-39%",
+      "r1": "+14%",
+      "r3": "+11%",
+      "r5": "+9%",
+      "r10": "+5.9%",
+      "vol": "16",
+      "corr": "0.85",
+      "flow": "+$7B",
+      "take": "Slightly below its own median with a 3.1% yield. The index is more global than the continent — a large share of revenue is earned outside Europe.",
+      "take2": "Cheap enough to be interesting, not cheap enough to be a table-pounder.",
+      "risks": [
+        "Energy input costs remain structurally higher than pre-2022",
+        "Bank exposure to sovereign and property credit",
+        "Political fragmentation slows fiscal response"
+      ],
+      "etfs": [
+        {
+          "ticker": "VGK",
+          "name": "Vanguard FTSE Europe",
+          "expenseRatio": 0.09
+        },
+        {
+          "ticker": "IEUR",
+          "name": "iShares Core MSCI Europe",
+          "expenseRatio": 0.09
+        },
+        {
+          "ticker": "FEZ",
+          "name": "SPDR Euro Stoxx 50",
+          "expenseRatio": 0.29
+        }
+      ]
+    },
+    {
+      "key": "em",
+      "name": "Emerging Markets",
+      "group": "International",
+      "pct": 31,
+      "fwdPE": "12.7",
+      "cape": "14.2",
+      "pb": "1.7",
+      "yld": "2.7%",
+      "eps": "+11%",
+      "ath": "-9%",
+      "athDate": "Oct 2007",
+      "dd": "-49%",
+      "r1": "+17%",
+      "r3": "+9%",
+      "r5": "+7%",
+      "r10": "+4.3%",
+      "vol": "18",
+      "corr": "0.78",
+      "flow": "+$12B",
+      "take": "Just inside the cheap third of its own history, with faster earnings growth than developed markets. Taiwan and Korea semiconductors now drive much of the index.",
+      "take2": "What you are actually buying has changed: this is closer to a technology hardware index with an Asian domicile than a commodity-exporter basket.",
+      "risks": [
+        "Semiconductor cycle now dominates index earnings",
+        "China weight brings policy and geopolitical risk",
+        "Dollar strength has historically been the single biggest headwind"
+      ],
+      "etfs": [
+        {
+          "ticker": "IEMG",
+          "name": "iShares Core MSCI Emerging Markets",
+          "expenseRatio": 0.09
+        },
+        {
+          "ticker": "VWO",
+          "name": "Vanguard FTSE Emerging Markets",
+          "expenseRatio": 0.07
+        },
+        {
+          "ticker": "SPEM",
+          "name": "SPDR Portfolio Emerging Markets",
+          "expenseRatio": 0.07
+        }
+      ]
+    },
+    {
+      "key": "emv",
+      "name": "EM Value",
+      "group": "International",
+      "pct": 15,
+      "fwdPE": "9.4",
+      "cape": "10.3",
+      "pb": "1.0",
+      "yld": "4.4%",
+      "eps": "+9%",
+      "ath": "-14%",
+      "athDate": "Oct 2007",
+      "dd": "-52%",
+      "r1": "+16%",
+      "r3": "+8%",
+      "r5": "+7%",
+      "r10": "+3.6%",
+      "vol": "19",
+      "corr": "0.74",
+      "flow": "+$2B",
+      "take": "The cheapest slice on the entire board — under ten times forward earnings, at book value, at the 15th percentile of its own range. A 4.4% yield is being paid to wait.",
+      "take2": "Extreme cheapness of this kind is usually compensation for governance, currency and political risk rather than a free lunch. Position sizing is the entire discussion.",
+      "risks": [
+        "State-owned enterprises with shareholders second in line",
+        "Currency devaluation can erase local equity gains in dollars",
+        "Capital-controls and delisting risk in the tail"
+      ],
+      "etfs": [
+        {
+          "ticker": "AVES",
+          "name": "Avantis Emerging Markets Value",
+          "expenseRatio": 0.36
+        },
+        {
+          "ticker": "FNDE",
+          "name": "Schwab Fundamental Emerging Markets",
+          "expenseRatio": 0.39
+        },
+        {
+          "ticker": "DGS",
+          "name": "WisdomTree EM SmallCap Dividend",
+          "expenseRatio": 0.58
+        }
+      ]
+    },
+    {
+      "key": "emxc",
+      "name": "EM ex-China",
+      "group": "International",
+      "pct": 47,
+      "fwdPE": "15.1",
+      "cape": "17.9",
+      "pb": "2.1",
+      "yld": "2.3%",
+      "eps": "+12%",
+      "ath": "-7%",
+      "athDate": "Feb 2026",
+      "dd": "-44%",
+      "r1": "+15%",
+      "r3": "+12%",
+      "r5": "+10%",
+      "r10": "+6.0%",
+      "vol": "18",
+      "corr": "0.76",
+      "flow": "+$5B",
+      "take": "Removing China removes the discount: this version trades near its own median because India and Taiwan carry premium multiples. You are paying to avoid a risk, and the price is explicit.",
+      "take2": "Useful as a governance decision, not a valuation one.",
+      "risks": [
+        "India's multiple is high on any historical measure",
+        "Taiwan concentration is a single-industry, single-strait risk",
+        "Higher fees than plain EM for the same underlying markets"
+      ],
+      "etfs": [
+        {
+          "ticker": "EMXC",
+          "name": "iShares MSCI EM ex-China",
+          "expenseRatio": 0.25
+        },
+        {
+          "ticker": "XCEM",
+          "name": "Columbia EM Core ex-China",
+          "expenseRatio": 0.16
+        },
+        {
+          "ticker": "EMXF",
+          "name": "iShares ESG Advanced EM ex-China",
+          "expenseRatio": 0.16
+        }
+      ]
+    },
+    {
+      "key": "china",
+      "name": "China",
+      "group": "International",
+      "pct": 8,
+      "fwdPE": "10.1",
+      "cape": "11.4",
+      "pb": "1.2",
+      "yld": "2.9%",
+      "eps": "+10%",
+      "ath": "-38%",
+      "athDate": "Feb 2021",
+      "dd": "-60%",
+      "r1": "+22%",
+      "r3": "+4%",
+      "r5": "+2%",
+      "r10": "+1.9%",
+      "vol": "26",
+      "corr": "0.50",
+      "flow": "-$6B",
+      "take": "At the 8th percentile of its own twenty-year range and 38% below its all-time high — statistically the deepest discount available. Earnings at the large internet platforms have recovered while the multiple has not.",
+      "take2": "This is the clearest example on the board of cheap-for-a-reason: the discount is a policy and property-cycle discount, and it can persist or widen regardless of earnings.",
+      "risks": [
+        "Policy intervention can reprice an entire sector overnight",
+        "Property-sector deleveraging still working through household balance sheets",
+        "Delisting and index-exclusion risk for US-listed holders",
+        "Demographics and deflation pressure nominal growth"
+      ],
+      "etfs": [
+        {
+          "ticker": "MCHI",
+          "name": "iShares MSCI China",
+          "expenseRatio": 0.59
+        },
+        {
+          "ticker": "FXI",
+          "name": "iShares China Large-Cap",
+          "expenseRatio": 0.74
+        },
+        {
+          "ticker": "KWEB",
+          "name": "KraneShares CSI China Internet",
+          "expenseRatio": 0.7
+        }
+      ]
+    },
+    {
+      "key": "gold",
+      "name": "Gold",
+      "group": "Real assets",
+      "pct": 88,
+      "fwdPE": "—",
+      "cape": "—",
+      "pb": "—",
+      "yld": "0.0%",
+      "eps": "—",
+      "ath": "-1%",
+      "athDate": "Aug 2026",
+      "dd": "-45%",
+      "r1": "+26%",
+      "r3": "+19%",
+      "r5": "+14%",
+      "r10": "+9.4%",
+      "vol": "15",
+      "corr": "0.10",
+      "flow": "+$31B",
+      "take": "Real price sits at the 88th percentile of its twenty-year range after central-bank buying and a debasement bid. There are no earnings to grow into the price.",
+      "take2": "Gold has done its job; the entry point is now the worst it has been outside 2011 and 1980 in real terms.",
+      "risks": [
+        "No cash flow — the entire return is the change in what someone else will pay",
+        "Real-rate increases have historically been the main drag",
+        "Central-bank demand is policy-driven and can stop abruptly"
+      ],
+      "etfs": [
+        {
+          "ticker": "GLDM",
+          "name": "SPDR Gold MiniShares",
+          "expenseRatio": 0.1
+        },
+        {
+          "ticker": "IAU",
+          "name": "iShares Gold Trust",
+          "expenseRatio": 0.25
+        },
+        {
+          "ticker": "GLD",
+          "name": "SPDR Gold Shares",
+          "expenseRatio": 0.4
+        }
+      ]
+    },
+    {
+      "key": "silver",
+      "name": "Silver",
+      "group": "Real assets",
+      "pct": 76,
+      "fwdPE": "—",
+      "cape": "—",
+      "pb": "—",
+      "yld": "0.0%",
+      "eps": "—",
+      "ath": "-6%",
+      "athDate": "Apr 2011",
+      "dd": "-70%",
+      "r1": "+34%",
+      "r3": "+22%",
+      "r5": "+16%",
+      "r10": "+8.1%",
+      "vol": "27",
+      "corr": "0.25",
+      "flow": "+$6B",
+      "take": "Half monetary metal, half industrial input, and priced at the high end of its own range but below its 1980 and 2011 peaks. Solar demand has changed the underlying balance.",
+      "take2": "Expect roughly twice gold's volatility in both directions — that has been true in every cycle.",
+      "risks": [
+        "Industrial demand ties it to the manufacturing cycle",
+        "Far more volatile than gold with the same lack of cash flow",
+        "Above-ground inventories are opaque"
+      ],
+      "etfs": [
+        {
+          "ticker": "SLV",
+          "name": "iShares Silver Trust",
+          "expenseRatio": 0.5
+        },
+        {
+          "ticker": "SIVR",
+          "name": "abrdn Physical Silver",
+          "expenseRatio": 0.3
+        },
+        {
+          "ticker": "SIL",
+          "name": "Global X Silver Miners",
+          "expenseRatio": 0.65
+        }
+      ]
+    },
+    {
+      "key": "bcom",
+      "name": "Broad Commodities",
+      "group": "Real assets",
+      "pct": 29,
+      "fwdPE": "—",
+      "cape": "—",
+      "pb": "—",
+      "yld": "0.0%",
+      "eps": "—",
+      "ath": "-19%",
+      "athDate": "Jun 2008",
+      "dd": "-62%",
+      "r1": "+4%",
+      "r3": "+2%",
+      "r5": "+7%",
+      "r10": "+1.4%",
+      "vol": "15",
+      "corr": "0.35",
+      "flow": "+$2B",
+      "take": "Below its own median and 19% under its all-time high, with the roll yield currently positive in energy. The diversification case is stronger than the return case.",
+      "take2": "This slice earns its place through low correlation to equities, not through expected return.",
+      "risks": [
+        "Roll cost can quietly consume returns in contango markets",
+        "Long dead decades — the 2010s were deeply negative",
+        "K-1 versus 1099 tax treatment differs by fund structure"
+      ],
+      "etfs": [
+        {
+          "ticker": "PDBC",
+          "name": "Invesco Optimum Yield Diversified Commodity",
+          "expenseRatio": 0.59
+        },
+        {
+          "ticker": "COMT",
+          "name": "iShares GSCI Commodity Dynamic Roll",
+          "expenseRatio": 0.48
+        },
+        {
+          "ticker": "DBC",
+          "name": "Invesco DB Commodity Index",
+          "expenseRatio": 0.87
+        }
+      ]
+    },
+    {
+      "key": "energy",
+      "name": "Energy Equity",
+      "group": "Real assets",
+      "pct": 26,
+      "fwdPE": "12.6",
+      "cape": "14.4",
+      "pb": "1.9",
+      "yld": "3.4%",
+      "eps": "+2%",
+      "ath": "-9%",
+      "athDate": "Jun 2014",
+      "dd": "-58%",
+      "r1": "+6%",
+      "r3": "+12%",
+      "r5": "+21%",
+      "r10": "+6.8%",
+      "vol": "22",
+      "corr": "0.60",
+      "flow": "-$4B",
+      "take": "Under thirteen times forward earnings at the 26th percentile of its own range, with capital discipline holding and buybacks running. The market is pricing a structural decline in demand.",
+      "take2": "Free cash flow yields here are the highest of any equity slice on the board, which is either an opportunity or a warning about terminal value.",
+      "risks": [
+        "Terminal-value risk if electrification accelerates",
+        "Oil price is the earnings driver and is not forecastable",
+        "Capital discipline has historically broken at the top of the cycle"
+      ],
+      "etfs": [
+        {
+          "ticker": "XLE",
+          "name": "Energy Select Sector SPDR",
+          "expenseRatio": 0.09
+        },
+        {
+          "ticker": "VDE",
+          "name": "Vanguard Energy",
+          "expenseRatio": 0.09
+        },
+        {
+          "ticker": "XOP",
+          "name": "SPDR Oil & Gas Exploration",
+          "expenseRatio": 0.35
+        }
+      ]
+    },
+    {
+      "key": "gminers",
+      "name": "Gold Miners",
+      "group": "Real assets",
+      "pct": 69,
+      "fwdPE": "14.8",
+      "cape": "16.2",
+      "pb": "2.4",
+      "yld": "1.4%",
+      "eps": "+28%",
+      "ath": "-8%",
+      "athDate": "Apr 2011",
+      "dd": "-66%",
+      "r1": "+55%",
+      "r3": "+31%",
+      "r5": "+19%",
+      "r10": "+6.2%",
+      "vol": "33",
+      "corr": "0.35",
+      "flow": "+$4B",
+      "take": "Miners have finally converted a high gold price into margin, and the multiple has re-rated with it. Above its own median but well below the metal on a percentile basis.",
+      "take2": "This is leveraged exposure to the gold price minus operational risk — historically a poor long-term hold and a strong cyclical one.",
+      "risks": [
+        "Cost inflation eats the margin the metal creates",
+        "Jurisdiction and expropriation risk in several major producers",
+        "Equity dilution has destroyed per-share value across cycles"
+      ],
+      "etfs": [
+        {
+          "ticker": "GDX",
+          "name": "VanEck Gold Miners",
+          "expenseRatio": 0.51
+        },
+        {
+          "ticker": "RING",
+          "name": "iShares MSCI Global Gold Miners",
+          "expenseRatio": 0.39
+        },
+        {
+          "ticker": "GDXJ",
+          "name": "VanEck Junior Gold Miners",
+          "expenseRatio": 0.52
+        }
+      ]
+    },
+    {
+      "key": "copper",
+      "name": "Copper & Industrial Metals",
+      "group": "Real assets",
+      "pct": 44,
+      "fwdPE": "16.1",
+      "cape": "18.4",
+      "pb": "2.0",
+      "yld": "2.1%",
+      "eps": "+9%",
+      "ath": "-11%",
+      "athDate": "Mar 2022",
+      "dd": "-64%",
+      "r1": "+18%",
+      "r3": "+9%",
+      "r5": "+13%",
+      "r10": "+5.5%",
+      "vol": "28",
+      "corr": "0.55",
+      "flow": "+$3B",
+      "take": "Near its own median, with a supply picture — few new large deposits, long permitting timelines — that is more compelling than the current multiple.",
+      "take2": "The electrification demand story is real but slower than headlines imply; the supply constraint is the more reliable half of the thesis.",
+      "risks": [
+        "Chinese construction demand still sets the marginal price",
+        "Mine-development timelines mean supply responses arrive years late",
+        "Deeply cyclical earnings make the P/E misleading at turns"
+      ],
+      "etfs": [
+        {
+          "ticker": "COPX",
+          "name": "Global X Copper Miners",
+          "expenseRatio": 0.65
+        },
+        {
+          "ticker": "PICK",
+          "name": "iShares MSCI Global Metals & Mining",
+          "expenseRatio": 0.39
+        },
+        {
+          "ticker": "CPER",
+          "name": "United States Copper Index",
+          "expenseRatio": 0.97
+        }
+      ]
+    }
+  ]
+}

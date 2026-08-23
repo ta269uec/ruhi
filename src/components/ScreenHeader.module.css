@@ -1,0 +1,33 @@
+.header {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: .02em;
+}
+
+.meta {
+  font: 500 10px var(--font-body);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--color-neutral-600);
+  white-space: nowrap;
+}
+
+.explainer {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--color-neutral-700);
+  margin-top: 4px;
+}

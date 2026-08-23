@@ -1,0 +1,26 @@
+.wrap {
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-neutral-700);
+}
+
+.retry {
+  margin-top: 16px;
+  padding: 10px 20px;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  font: 600 11px var(--font-body);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.retry:hover {
+  background: var(--color-accent-600);
+}

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="stylesheet" href="_ds/industry-c07233cb-5e49-46a3-a59e-2c02c26655dc/styles.css"><script src="_ds/industry-c07233cb-5e49-46a3-a59e-2c02c26655dc/_ds_bundle.js"></script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap"><style>body{margin:0;background:var(--color-bg);font-family:var(--font-body);color:var(--color-text)}a{color:var(--color-accent-700);text-decoration:none}a:hover{color:var(--color-accent-800)}*{box-sizing:border-box}::-webkit-scrollbar{width:0;height:0}</style></helmet>
+
+<div style="display:flex;align-items:flex-start;gap:44px;padding:44px 48px 64px;min-height:100vh">
+
+<div style="width:340px;flex:none;display:flex;flex-direction:column;gap:26px;padding-top:6px">
+<div>
+<div style="font:600 10px/1 var(--font-body);letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-700)">Mobile app · prototype</div>
+<h1 style="font-family:var(--font-heading);font-weight:700;font-size:56px;line-height:.9;letter-spacing:.06em;margin:10px 0 0">RUHI</h1>
+<div style="font:600 12px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-700);margin-top:8px">Your return is decided by the price you pay</div>
+<p style="font-size:15px;line-height:1.45;margin:12px 0 0;color:var(--color-neutral-700);text-wrap:pretty"><em>Ruhi</em> means soul. The app looks past the story and the ticker to the only thing that sets your future return: how expensive a slice of the market is today <em>relative to its own 20-year history</em>.</p>
+<div style="position:relative;border-left:2px solid var(--color-accent);padding:2px 0 2px 14px;margin-top:16px">
+<div style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.2;letter-spacing:.01em">“Price is what you pay. Value is what you get.”</div>
+<div style="font:500 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-neutral-600);margin-top:5px">Warren Buffett</div>
+</div>
+</div>
+
+<div style="position:relative;border:1px solid var(--color-divider);padding:18px 18px 16px">
+<i style="position:absolute;top:-4px;left:-4px;width:7px;height:7px;border-top:1px solid var(--color-accent);border-left:1px solid var(--color-accent)"></i>
+<i style="position:absolute;top:-4px;right:-4px;width:7px;height:7px;border-top:1px solid var(--color-accent);border-right:1px solid var(--color-accent)"></i>
+<i style="position:absolute;bottom:-4px;left:-4px;width:7px;height:7px;border-bottom:1px solid var(--color-accent);border-left:1px solid var(--color-accent)"></i>
+<i style="position:absolute;bottom:-4px;right:-4px;width:7px;height:7px;border-bottom:1px solid var(--color-accent);border-right:1px solid var(--color-accent)"></i>
+<div style="font-family:var(--font-heading);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:10px">Design assumptions</div>
+<ul style="margin:0;padding-left:16px;font-size:13.5px;line-height:1.5;color:var(--color-neutral-700)">
+<li>Sophisticated DIY investor, reading in short sittings.</li>
+<li>The headline number is a <strong>valuation percentile vs. the slice's own 20-year range</strong> — not vs. other slices.</li>
+<li>The app ranks and labels <strong>Cheap / Fair / Rich</strong>. It never sizes a position or issues a buy.</li>
+<li>Cheapness is drawn in one steel ink at varying weight, so the ranking reads without a red/green traffic light.</li>
+<li>Every slice ends in tradeable ETFs with expense ratios — the screen is useless without the instrument.</li>
+</ul>
+</div>
+
+<div>
+<div style="font-family:var(--font-heading);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:10px">Jump to</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<button onClick="{{ goRanks }}" style="font:600 11px var(--font-body);letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;border:1px solid var(--color-divider);background:transparent;color:var(--color-text);cursor:pointer" style-hover="background:var(--color-accent-100);border-color:var(--color-accent)">Ranked list</button>
+<button onClick="{{ goMap }}" style="font:600 11px var(--font-body);letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;border:1px solid var(--color-divider);background:transparent;color:var(--color-text);cursor:pointer" style-hover="background:var(--color-accent-100);border-color:var(--color-accent)">Valuation map</button>
+<button onClick="{{ goDetail }}" style="font:600 11px var(--font-body);letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;border:1px solid var(--color-divider);background:transparent;color:var(--color-text);cursor:pointer" style-hover="background:var(--color-accent-100);border-color:var(--color-accent)">Slice detail</button>
+<button onClick="{{ goWatch }}" style="font:600 11px var(--font-body);letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;border:1px solid var(--color-divider);background:transparent;color:var(--color-text);cursor:pointer" style-hover="background:var(--color-accent-100);border-color:var(--color-accent)">Watchlist</button>
+<button onClick="{{ goNotes }}" style="font:600 11px var(--font-body);letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;border:1px solid var(--color-divider);background:transparent;color:var(--color-text);cursor:pointer" style-hover="background:var(--color-accent-100);border-color:var(--color-accent)">Commentary</button>
+</div>
+</div>
+</div>
+
+<div style="flex:none;display:flex;flex-direction:column;align-items:center;gap:14px">
+<div style="position:relative;width:390px;height:844px;border:1px solid var(--color-text);background:var(--color-bg);overflow:hidden;box-shadow:var(--shadow-lg);display:flex;flex-direction:column">
+<i style="position:absolute;top:-5px;left:-5px;width:9px;height:9px;border-top:1px solid var(--color-accent);border-left:1px solid var(--color-accent);z-index:9"></i>
+<i style="position:absolute;top:-5px;right:-5px;width:9px;height:9px;border-top:1px solid var(--color-accent);border-right:1px solid var(--color-accent);z-index:9"></i>
+<i style="position:absolute;bottom:-5px;left:-5px;width:9px;height:9px;border-bottom:1px solid var(--color-accent);border-left:1px solid var(--color-accent);z-index:9"></i>
+<i style="position:absolute;bottom:-5px;right:-5px;width:9px;height:9px;border-bottom:1px solid var(--color-accent);border-right:1px solid var(--color-accent);z-index:9"></i>
+
+<div style="height:44px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 20px 0 24px;font:600 12px var(--font-body);letter-spacing:.04em;border-bottom:1px solid var(--color-divider)">
+<span>9:41</span>
+<span style="display:flex;gap:6px;align-items:center;opacity:.75"><span style="display:inline-block;width:16px;height:8px;border:1px solid var(--color-text)"></span><span style="display:inline-block;width:3px;height:8px;background:var(--color-text)"></span></span>
+</div>
+
+<div style="flex:none;display:flex;align-items:center;justify-content:space-between;padding:11px 20px 10px;border-bottom:1px solid var(--color-text)">
+<div style="display:flex;align-items:center;gap:10px">
+<svg viewBox="0 0 64 64" style="width:26px;height:26px;flex:none">
+<line x1="32" y1="6" x2="32" y2="58" stroke="var(--color-accent)" stroke-width="3"></line>
+<line x1="21" y1="6" x2="43" y2="6" stroke="var(--color-accent)" stroke-width="3"></line>
+<line x1="21" y1="58" x2="43" y2="58" stroke="var(--color-accent)" stroke-width="3"></line>
+<rect x="22" y="41" width="20" height="9" fill="var(--color-accent-800)"></rect>
+</svg>
+<div>
+<div style="font-family:var(--font-heading);font-weight:700;font-size:20px;letter-spacing:.16em;line-height:1">RUHI</div>
+<div style="font:600 7.5px var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--color-accent-700);margin-top:2px">Price in perspective</div>
+</div>
+</div>
+<button onClick="{{ goAbout }}" style="font:600 9px var(--font-body);letter-spacing:.14em;text-transform:uppercase;background:transparent;border:1px solid var(--color-divider);padding:6px 9px;cursor:pointer;color:var(--color-neutral-700);flex:none;white-space:nowrap" style-hover="border-color:var(--color-accent);background:var(--color-accent-100);color:var(--color-accent-800)">About</button>
+</div>
+
+<div style="flex:1;overflow-y:auto;overflow-x:hidden">
+
+<sc-if value="{{ isRanks }}" hint-placeholder-val="{{ true }}">
+<div>
+<div style="padding:18px 20px 14px;border-bottom:1px solid var(--color-divider)">
+<div style="display:flex;align-items:baseline;justify-content:space-between">
+<div style="font-family:var(--font-heading);font-weight:700;font-size:24px;letter-spacing:.02em">CHEAPEST FIRST</div>
+<div style="font:500 10px var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-600)">{{ today }}</div>
+</div>
+<div style="font-size:12.5px;line-height:1.4;color:var(--color-neutral-700);margin-top:4px">Valuation percentile vs. each slice's own 20-year range. Low = cheap versus its own history.</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--color-divider)">
+<div style="padding:12px 14px;border-right:1px solid var(--color-divider)">
+<div style="font:500 9.5px var(--font-body);letter-spacing:.13em;text-transform:uppercase;color:var(--color-neutral-600)">Cheapest</div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.1;margin-top:3px">{{ statCheap }}</div>
+</div>
+<div style="padding:12px 14px;border-right:1px solid var(--color-divider)">
+<div style="font:500 9.5px var(--font-body);letter-spacing:.13em;text-transform:uppercase;color:var(--color-neutral-600)">Richest</div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.1;margin-top:3px">{{ statRich }}</div>
+</div>
+<div style="padding:12px 14px">
+<div style="font:500 9.5px var(--font-body);letter-spacing:.13em;text-transform:uppercase;color:var(--color-neutral-600)">Below 30th pct</div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:16px;line-height:1.1;margin-top:3px">{{ statCount }} of {{ statTotal }}</div>
+</div>
+</div>
+
+<div style="display:flex;gap:0;border-bottom:1px solid var(--color-divider);overflow-x:auto">
+<sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+<button onClick="{{ f.on }}" style="{{ f.style }}">{{ f.label }}</button>
+</sc-for>
+</div>
+
+<sc-for list="{{ rows }}" as="r" hint-placeholder-count="9">
+<div onClick="{{ r.open }}" style="{{ r.rowStyle }}" style-hover="background:var(--color-accent-100)">
+<div style="width:22px;flex:none;font-family:var(--font-heading);font-weight:600;font-size:15px;color:var(--color-neutral-500);padding-top:2px">{{ r.rank }}</div>
+<div style="flex:1;min-width:0">
+<div style="display:flex;align-items:baseline;gap:7px">
+<div style="font-family:var(--font-heading);font-weight:600;font-size:17px;line-height:1.15;letter-spacing:.01em">{{ r.name }}</div>
+<sc-if value="{{ showBadges }}" hint-placeholder-val="{{ true }}"><span style="{{ r.tagStyle }}">{{ r.verdict }}</span></sc-if>
+</div>
+<div style="font:500 10px var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-600);margin-top:2px">{{ r.group }} · fwd P/E {{ r.fwdPE }} · yld {{ r.yld }}</div>
+<sc-if value="{{ vizBar }}" hint-placeholder-val="{{ true }}">
+<div style="margin-top:8px;position:relative;height:7px;background:var(--color-neutral-200);border:1px solid var(--color-neutral-300)">
+<div style="{{ r.barStyle }}"></div>
+<div style="position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--color-neutral-500)"></div>
+</div>
+</sc-if>
+<sc-if value="{{ vizSpark }}">
+<svg viewBox="0 0 240 30" preserveAspectRatio="none" style="width:100%;height:26px;margin-top:6px;display:block;overflow:visible">
+<line x1="0" y1="15" x2="240" y2="15" stroke="var(--color-neutral-300)" stroke-width="1"></line>
+<polyline points="{{ r.spark }}" fill="none" stroke="{{ r.ink }}" stroke-width="1.5"></polyline>
+<circle cx="240" cy="{{ r.sparkEndY }}" r="2.5" fill="{{ r.ink }}"></circle>
+</svg>
+</sc-if>
+</div>
+<div style="flex:none;width:56px;text-align:right">
+<sc-if value="{{ vizDial }}">
+<svg viewBox="0 0 44 44" style="width:44px;height:44px;display:block;margin-left:auto">
+<circle cx="22" cy="22" r="17" fill="none" stroke="var(--color-neutral-300)" stroke-width="3"></circle>
+<circle cx="22" cy="22" r="17" fill="none" stroke="{{ r.ink }}" stroke-width="3" stroke-dasharray="{{ r.dash }}" transform="rotate(-90 22 22)"></circle>
+<text x="22" y="26" text-anchor="middle" font-family="Barlow Condensed" font-size="15" font-weight="600" fill="{{ r.ink }}">{{ r.pct }}</text>
+</svg>
+</sc-if>
+<sc-if value="{{ notDial }}" hint-placeholder-val="{{ true }}">
+<div style="{{ r.pctStyle }}">{{ r.pct }}</div>
+<div style="font:500 9px var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-500)">pctile</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+<div style="padding:16px 20px 26px;font-size:11.5px;line-height:1.45;color:var(--color-neutral-600);border-top:1px solid var(--color-divider)">Percentiles computed on forward P/E, CAPE and price/book blended equally, versus the slice's own history since 2006. Real-asset slices use price and cost-curve percentiles instead of earnings multiples. Illustrative data.</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isMap }}">
+<div>
+<div style="padding:18px 20px 14px;border-bottom:1px solid var(--color-divider)">
+<div style="font-family:var(--font-heading);font-weight:700;font-size:24px;letter-spacing:.02em">VALUATION MAP</div>
+<div style="font-size:12.5px;line-height:1.4;color:var(--color-neutral-700);margin-top:4px">Darker steel = cheaper versus its own history. Tap any cell.</div>
+</div>
+<div style="padding:18px 20px 8px">
+<div style="font:600 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:9px">US size &amp; style</div>
+<div style="display:grid;grid-template-columns:34px 1fr 1fr 1fr;gap:1px">
+<div></div>
+<div style="font:500 9.5px var(--font-body);letter-spacing:.11em;text-transform:uppercase;color:var(--color-neutral-600);text-align:center;padding-bottom:4px">Value</div>
+<div style="font:500 9.5px var(--font-body);letter-spacing:.11em;text-transform:uppercase;color:var(--color-neutral-600);text-align:center;padding-bottom:4px">Blend</div>
+<div style="font:500 9.5px var(--font-body);letter-spacing:.11em;text-transform:uppercase;color:var(--color-neutral-600);text-align:center;padding-bottom:4px">Growth</div>
+<sc-for list="{{ styleBox }}" as="c" hint-placeholder-count="12">
+<div onClick="{{ c.open }}" style="{{ c.style }}">{{ c.label }}</div>
+</sc-for>
+</div>
+</div>
+<div style="padding:14px 20px 6px">
+<div style="font:600 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:9px">Income &amp; dividend</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px">
+<sc-for list="{{ mapIncome }}" as="c" hint-placeholder-count="4">
+<div onClick="{{ c.open }}" style="{{ c.style }}"><span>{{ c.name }}</span><span>{{ c.pct }}</span></div>
+</sc-for>
+</div>
+</div>
+<div style="padding:14px 20px 6px">
+<div style="font:600 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:9px">International</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px">
+<sc-for list="{{ mapIntl }}" as="c" hint-placeholder-count="9">
+<div onClick="{{ c.open }}" style="{{ c.style }}"><span>{{ c.name }}</span><span>{{ c.pct }}</span></div>
+</sc-for>
+</div>
+</div>
+<div style="padding:14px 20px 24px">
+<div style="font:600 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:9px">Real assets</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px">
+<sc-for list="{{ mapReal }}" as="c" hint-placeholder-count="6">
+<div onClick="{{ c.open }}" style="{{ c.style }}"><span>{{ c.name }}</span><span>{{ c.pct }}</span></div>
+</sc-for>
+</div>
+<div style="display:flex;align-items:center;gap:8px;margin-top:18px">
+<span style="font:500 9.5px var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-600)">Cheap</span>
+<div style="flex:1;height:8px;background:linear-gradient(90deg,var(--color-accent-800),var(--color-accent-400),var(--color-neutral-200));border:1px solid var(--color-neutral-300)"></div>
+<span style="font:500 9.5px var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-600)">Rich</span>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isWatch }}">
+<div>
+<div style="padding:18px 20px 14px;border-bottom:1px solid var(--color-divider)">
+<div style="font-family:var(--font-heading);font-weight:700;font-size:24px;letter-spacing:.02em">WATCHLIST</div>
+<div style="font-size:12.5px;line-height:1.4;color:var(--color-neutral-700);margin-top:4px">Alerts fire when a slice crosses your percentile threshold.</div>
+</div>
+<sc-for list="{{ watch }}" as="w" hint-placeholder-count="4">
+<div style="padding:16px 20px;border-bottom:1px solid var(--color-divider)">
+<div onClick="{{ w.open }}" style="display:flex;align-items:baseline;justify-content:space-between;cursor:pointer">
+<div style="font-family:var(--font-heading);font-weight:600;font-size:19px;letter-spacing:.01em">{{ w.name }}</div>
+<div style="{{ w.pctStyle }}">{{ w.pct }}</div>
+</div>
+<div style="position:relative;height:26px;margin-top:10px;border-bottom:1px solid var(--color-neutral-300)">
+<div style="{{ w.barStyle }}"></div>
+<div style="{{ w.markStyle }}"></div>
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:7px;font:500 10px var(--font-body);letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-600)">
+<span>Alert at {{ w.trigger }}th</span>
+<span>{{ w.status }}</span>
+</div>
+<div style="font-size:13px;line-height:1.45;color:var(--color-neutral-700);margin-top:8px">{{ w.note }}</div>
+</div>
+</sc-for>
+<div style="padding:18px 20px 28px">
+<button style="width:100%;padding:13px;background:var(--color-accent);color:#fff;border:none;font:600 12px var(--font-body);letter-spacing:.14em;text-transform:uppercase;cursor:pointer" style-hover="background:var(--color-accent-600)">Add a slice</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isNotes }}">
+<div>
+<div style="padding:18px 20px 14px;border-bottom:1px solid var(--color-divider)">
+<div style="font-family:var(--font-heading);font-weight:700;font-size:24px;letter-spacing:.02em">WHAT CHANGED</div>
+<div style="font-size:12.5px;line-height:1.4;color:var(--color-neutral-700);margin-top:4px">Written when a percentile moves enough to matter — not daily noise.</div>
+</div>
+<sc-for list="{{ feed }}" as="n" hint-placeholder-count="5">
+<div onClick="{{ n.open }}" style="padding:16px 20px;border-bottom:1px solid var(--color-divider);cursor:pointer" style-hover="background:var(--color-accent-100)">
+<div style="display:flex;align-items:center;gap:8px">
+<span style="{{ n.tagStyle }}">{{ n.slice }}</span>
+<span style="font:500 10px var(--font-body);letter-spacing:.11em;text-transform:uppercase;color:var(--color-neutral-600)">{{ n.date }}</span>
+</div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.15;margin-top:8px;letter-spacing:.01em">{{ n.head }}</div>
+<div style="font-size:13.5px;line-height:1.5;color:var(--color-neutral-800);margin-top:6px;text-wrap:pretty">{{ n.body }}</div>
+<div style="font:600 10px var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--color-accent-700);margin-top:10px">Read the slice →</div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{ isAbout }}">
+<div>
+<div style="display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--color-divider)">
+<button onClick="{{ back }}" style="font:600 11px var(--font-body);letter-spacing:.12em;text-transform:uppercase;background:transparent;border:1px solid var(--color-divider);padding:7px 11px;cursor:pointer;color:var(--color-text);white-space:nowrap;flex:none" style-hover="border-color:var(--color-accent);background:var(--color-accent-100)">← Back</button>
+<div style="font:500 10px var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-600)">About Ruhi</div>
+</div>
+<div style="display:flex;justify-content:center;padding:34px 0 22px">
+<svg viewBox="0 0 64 64" style="width:64px;height:64px">
+<line x1="32" y1="6" x2="32" y2="58" stroke="var(--color-accent)" stroke-width="2"></line>
+<line x1="21" y1="6" x2="43" y2="6" stroke="var(--color-accent)" stroke-width="2"></line>
+<line x1="21" y1="58" x2="43" y2="58" stroke="var(--color-accent)" stroke-width="2"></line>
+<rect x="22" y="41" width="20" height="9" fill="var(--color-accent-800)"></rect>
+</svg>
+</div>
+<div style="padding:0 24px 8px;text-align:center">
+<div style="font-family:var(--font-heading);font-weight:700;font-size:34px;letter-spacing:.16em;line-height:1">RUHI</div>
+<div style="font:600 9.5px var(--font-body);letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-700);margin-top:7px">Price in perspective</div>
+</div>
+<div style="padding:22px 24px 0">
+<div style="font-family:var(--font-heading);font-weight:700;font-size:26px;line-height:1.1;letter-spacing:.01em">The essence of a price</div>
+<div style="font-size:14.5px;line-height:1.6;margin-top:12px;color:var(--color-neutral-800);text-wrap:pretty"><em>Ruhi</em> means soul. It is the right name for this app because a price is the only part of an investment you actually control, and almost the only part anyone ignores. Strip away the story, the ticker and the forecast, and what is left — what you paid, measured against everything that slice of the market has ever cost — is the thing that decides your return.</div>
+<div style="font-size:14.5px;line-height:1.6;margin-top:12px;color:var(--color-neutral-800);text-wrap:pretty">So Ruhi does one thing. It takes every slice of the market — the nine US size and style boxes, dividend and income, international developed and emerging, gold, silver, energy and the rest — and asks how expensive each one is today relative to its own twenty-year history. Not against each other. Against itself.</div>
+<div style="font-size:14.5px;line-height:1.6;margin-top:12px;color:var(--color-neutral-800);text-wrap:pretty">Then it says so in plain English: what you are buying, why it is priced where it is, what could go wrong, and which funds own it and at what cost. It will not tell you what to buy. It will tell you what is cheap.</div>
+</div>
+<div style="margin:22px 24px 0;border-left:2px solid var(--color-accent);padding:2px 0 2px 14px">
+<div style="font-family:var(--font-heading);font-weight:600;font-size:19px;line-height:1.2">“Price is what you pay. Value is what you get.”</div>
+<div style="font:500 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-neutral-600);margin-top:5px">Warren Buffett</div>
+</div>
+<div style="margin:24px 24px 0;border-top:1px solid var(--color-divider);padding-top:16px">
+<div style="font:600 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800)">Method</div>
+<div style="font-size:13.5px;line-height:1.5;color:var(--color-neutral-700);margin-top:7px">Each slice is ranked against its own history since 2006 on forward P/E, CAPE and price-to-book, equally weighted. Real-asset slices use real price and cost-curve percentiles instead of earnings multiples. Below the 30th percentile is Cheap, above the 70th is Rich.</div>
+</div>
+<div style="margin:20px 24px 34px;border-top:1px solid var(--color-divider);padding-top:16px;font-size:13.5px;line-height:1.55;color:var(--color-neutral-700);font-style:italic">Named for someone whose name means soul.</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isDetail }}">
+<div>
+<div style="display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--color-divider);position:sticky;top:0;background:var(--color-bg);z-index:5">
+<button onClick="{{ back }}" style="font:600 11px var(--font-body);letter-spacing:.12em;text-transform:uppercase;background:transparent;border:1px solid var(--color-divider);padding:7px 11px;cursor:pointer;color:var(--color-text);white-space:nowrap;flex:none" style-hover="border-color:var(--color-accent);background:var(--color-accent-100)">← Back</button>
+<div style="font:500 10px var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-600)">{{ d.group }}</div>
+</div>
+
+<div style="padding:20px 20px 18px;border-bottom:1px solid var(--color-divider)">
+<div style="font-family:var(--font-heading);font-weight:700;font-size:32px;line-height:1;letter-spacing:.01em">{{ d.name }}</div>
+<div style="display:flex;align-items:flex-end;gap:14px;margin-top:16px">
+<div style="{{ d.bigStyle }}">{{ d.pct }}</div>
+<div style="padding-bottom:6px">
+<div style="{{ d.tagStyle }}">{{ d.verdict }}</div>
+<div style="font-size:12.5px;line-height:1.35;color:var(--color-neutral-700);margin-top:6px;max-width:200px">{{ d.line }}</div>
+</div>
+</div>
+</div>
+
+<div style="padding:18px 20px;border-bottom:1px solid var(--color-divider)">
+<div style="display:flex;justify-content:space-between;align-items:baseline">
+<div style="font:600 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800)">Valuation percentile · 20 years</div>
+<div style="font:500 10px var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-600)">2006 — now</div>
+</div>
+<svg viewBox="0 0 330 120" style="width:100%;height:130px;display:block;margin-top:10px;overflow:visible">
+<rect x="0" y="30" width="330" height="60" fill="var(--color-accent-100)"></rect>
+<line x1="0" y1="60" x2="330" y2="60" stroke="var(--color-neutral-400)" stroke-width="1" stroke-dasharray="3 3"></line>
+<polyline points="{{ d.chart }}" fill="none" stroke="var(--color-accent-700)" stroke-width="1.6"></polyline>
+<circle cx="330" cy="{{ d.chartEndY }}" r="3.5" fill="var(--color-accent-700)"></circle>
+<text x="2" y="12" font-family="Barlow" font-size="9" fill="var(--color-neutral-600)">100 · richest</text>
+<text x="2" y="117" font-family="Barlow" font-size="9" fill="var(--color-neutral-600)">0 · cheapest</text>
+</svg>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--color-divider)">
+<div style="padding:14px 16px;border-right:1px solid var(--color-divider)">
+<div style="font:500 9.5px var(--font-body);letter-spacing:.13em;text-transform:uppercase;color:var(--color-neutral-600)">From all-time high</div>
+<div style="font-family:var(--font-heading);font-weight:700;font-size:30px;line-height:1;margin-top:5px">{{ d.ath }}</div>
+<div style="font-size:11.5px;color:var(--color-neutral-600);margin-top:3px">ATH {{ d.athDate }}</div>
+</div>
+<div style="padding:14px 16px">
+<div style="font:500 9.5px var(--font-body);letter-spacing:.13em;text-transform:uppercase;color:var(--color-neutral-600)">Worst drawdown, 20y</div>
+<div style="font-family:var(--font-heading);font-weight:700;font-size:30px;line-height:1;margin-top:5px">{{ d.dd }}</div>
+<div style="font-size:11.5px;color:var(--color-neutral-600);margin-top:3px">Peak to trough</div>
+</div>
+</div>
+
+<div style="padding:18px 20px 6px">
+<div style="font:600 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:10px">Valuation &amp; character</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--color-divider);border:1px solid var(--color-divider)">
+<sc-for list="{{ d.metrics }}" as="m" hint-placeholder-count="8">
+<div style="background:var(--color-bg);padding:11px 12px">
+<div style="font:500 9.5px var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-600)">{{ m.label }}</div>
+<div style="display:flex;align-items:baseline;gap:6px;margin-top:3px">
+<span style="font-family:var(--font-heading);font-weight:600;font-size:21px;line-height:1">{{ m.val }}</span>
+<span style="font-size:11px;color:var(--color-neutral-600)">{{ m.sub }}</span>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="padding:18px 20px 6px">
+<div style="font:600 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:10px">Annualised total return</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;border:1px solid var(--color-divider)">
+<sc-for list="{{ d.returns }}" as="t" hint-placeholder-count="4">
+<div style="padding:10px 8px;text-align:center;border-right:1px solid var(--color-divider)">
+<div style="font:500 9.5px var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-600)">{{ t.label }}</div>
+<div style="font-family:var(--font-heading);font-weight:600;font-size:19px;margin-top:2px">{{ t.val }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="padding:20px">
+<div style="font:600 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:8px">Why it is priced here</div>
+<div style="font-size:14px;line-height:1.55;color:var(--color-text);text-wrap:pretty">{{ d.take }}</div>
+<sc-if value="{{ narrative }}">
+<div style="font-size:14px;line-height:1.55;color:var(--color-text);margin-top:10px;text-wrap:pretty">{{ d.take2 }}</div>
+</sc-if>
+</div>
+
+<div style="padding:0 20px 20px">
+<div style="font:600 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:10px">Risk factors</div>
+<sc-for list="{{ d.risks }}" as="k" hint-placeholder-count="3">
+<div style="display:flex;gap:10px;padding:9px 0;border-top:1px solid var(--color-divider)">
+<span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:var(--color-accent-700);flex:none;width:16px">{{ k.n }}</span>
+<span style="font-size:13.5px;line-height:1.45;color:var(--color-neutral-800)">{{ k.text }}</span>
+</div>
+</sc-for>
+</div>
+
+<div style="padding:0 20px 28px">
+<div style="font:600 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:10px">How to own it</div>
+<div style="border:1px solid var(--color-divider)">
+<div style="display:grid;grid-template-columns:64px 1fr 56px;padding:8px 12px;background:var(--color-accent-100);font:600 9.5px var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--color-accent-800)">
+<span>Ticker</span><span>Fund</span><span style="text-align:right">Exp.</span>
+</div>
+<sc-for list="{{ d.etfs }}" as="e" hint-placeholder-count="3">
+<div style="display:grid;grid-template-columns:64px 1fr 56px;padding:11px 12px;border-top:1px solid var(--color-divider);align-items:baseline">
+<span style="font-family:var(--font-heading);font-weight:700;font-size:16px;letter-spacing:.03em">{{ e.ticker }}</span>
+<span style="font-size:12.5px;line-height:1.3;color:var(--color-neutral-800)">{{ e.name }}</span>
+<span style="text-align:right;font-family:var(--font-heading);font-weight:600;font-size:16px">{{ e.er }}</span>
+</div>
+</sc-for>
+</div>
+<div style="font-size:11px;line-height:1.45;color:var(--color-neutral-600);margin-top:8px">Expense ratios are annual, in percent. Listed for coverage of the slice, not as a recommendation of a fund provider.</div>
+</div>
+</div>
+</sc-if>
+
+</div>
+
+<div style="flex:none;height:74px;border-top:1px solid var(--color-text);display:grid;grid-template-columns:1fr 1fr 1fr 1fr">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+<button onClick="{{ t.on }}" style="{{ t.style }}">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:20px;height:20px"><path d="{{ t.icon }}"></path></svg>
+<span style="font:600 9.5px var(--font-body);letter-spacing:.12em;text-transform:uppercase">{{ t.label }}</span>
+</button>
+</sc-for>
+</div>
+</div>
+<div style="font:500 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--color-neutral-500)">390 × 844 · iPhone 15 class</div>
+</div>
+
+<div style="width:300px;flex:none;display:flex;flex-direction:column;gap:24px;padding-top:6px">
+<div>
+<div style="font-family:var(--font-heading);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:10px">How to read the signal</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;gap:10px;align-items:flex-start"><span style="flex:none;margin-top:2px;font:600 10px var(--font-body);letter-spacing:.1em;padding:3px 7px;background:var(--color-accent);color:#fff">CHEAP</span><span style="font-size:13px;line-height:1.4;color:var(--color-neutral-700)">Below the 30th percentile of its own 20-year valuation range.</span></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><span style="flex:none;margin-top:2px;font:600 10px var(--font-body);letter-spacing:.1em;padding:3px 7px;background:var(--color-accent-200);color:var(--color-accent-800)">FAIR</span><span style="font-size:13px;line-height:1.4;color:var(--color-neutral-700)">30th to 70th. Priced roughly where it usually is.</span></div>
+<div style="display:flex;gap:10px;align-items:flex-start"><span style="flex:none;margin-top:2px;font:600 10px var(--font-body);letter-spacing:.1em;padding:3px 7px;border:1px solid var(--color-neutral-700);color:var(--color-neutral-800)">RICH</span><span style="font-size:13px;line-height:1.4;color:var(--color-neutral-700)">Above the 70th. Future returns start from a high base.</span></div>
+</div>
+</div>
+<div>
+<div style="font-family:var(--font-heading);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:10px">Coverage</div>
+<div style="font-size:13px;line-height:1.5;color:var(--color-neutral-700)">9 US size &amp; style boxes · 4 dividend and income slices · 9 international slices including developed value, small and emerging · 6 real-asset slices covering gold, silver, broad commodities, energy, miners and industrial metals.</div>
+</div>
+<div>
+<div style="font-family:var(--font-heading);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:10px">Open questions</div>
+<ul style="margin:0;padding-left:16px;font-size:13px;line-height:1.5;color:var(--color-neutral-700)">
+<li>Where does the underlying valuation data come from — a vendor feed, or index-provider factsheets?</li>
+<li>Should bonds and credit spreads join the same percentile framework?</li>
+<li>Do you want a "cheap but for a reason" flag where earnings are falling faster than price?</li>
+</ul>
+</div>
+<div style="font-size:11.5px;line-height:1.45;color:var(--color-neutral-600);border-top:1px solid var(--color-divider);padding-top:12px">All figures are illustrative sample data for design review, not investment advice.</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;signalViz&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;bar&quot;,&quot;dial&quot;,&quot;spark&quot;],&quot;default&quot;:&quot;bar&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Signal&quot;},&quot;density&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;comfortable&quot;,&quot;compact&quot;],&quot;default&quot;:&quot;compact&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Signal&quot;},&quot;verdictBadges&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Signal&quot;},&quot;commentaryStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;verdict-first&quot;,&quot;narrative&quot;],&quot;default&quot;:&quot;verdict-first&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Commentary&quot;}}">
+const D = [
+["uslg","US Large Growth","US size & style",96,"31.4","44.1","12.1","0.5%","+16%","-2%","-34%","+21%","+19%","+18%","+17.5%","19","0.97","+$48B","VUG|Vanguard Growth|0.04;SCHG|Schwab US Large-Cap Growth|0.04;IWF|iShares Russell 1000 Growth|0.19","Six or seven companies carry the index, and they are priced for the AI capital cycle to convert into durable operating profit. At the 96th percentile of its own twenty-year range, the slice is discounting execution, not hoping for it.","Nothing here is broken — earnings have genuinely compounded. The issue is arithmetic: buying at this multiple has historically front-loaded a decade of return into the price you pay today.","Top-ten weight near 55% of the index — this is a concentrated bet, not diversification;AI capital spending that does not convert to returns on invested capital;Multiple compression if long real rates move higher;Crowding — the same names sit inside most US core funds you already own","Jan 2026"],
+["uslb","US Large Blend","US size & style",91,"22.6","38.2","5.2","1.2%","+11%","-1%","-34%","+14%","+14%","+15%","+13.8%","16","1.00","+$120B","VOO|Vanguard S&P 500|0.03;SPLG|SPDR Portfolio S&P 500|0.02;ITOT|iShares Core S&P Total US|0.03","The default holding for most portfolios, and currently the 91st percentile of its own history. Growth's weight inside the blend index is doing most of the work.","Owning it is defensible; expecting the last decade's return from this entry point is not. Cap-weighting means you are buying more of what has already risen.","Growth concentration imported into a supposedly neutral holding;Margins at cycle highs — mean reversion would hit the E, not just the P/E;Passive flows reverse the same way they arrive","Feb 2026"],
+["uslv","US Large Value","US size & style",68,"17.2","26.4","2.9","2.2%","+7%","-3%","-32%","+11%","+11%","+12%","+9.6%","14","0.88","+$9B","VTV|Vanguard Value|0.04;SCHV|Schwab US Large-Cap Value|0.04;IWD|iShares Russell 1000 Value|0.19","Cheaper than the blend on every multiple, but not cheap against its own history — value has re-rated alongside everything else. Financials and healthcare dominate the exposure.","The spread between value and growth multiples is wide; the absolute level of value is only middling. That combination argues for a tilt, not a wholesale move.","Financials are roughly a quarter of the index — this is a rate and credit bet;Value traps in structurally declining industries;Less earnings growth means the multiple has to do more of the work","Jan 2026"],
+["usmg","US Mid Growth","US size & style",74,"24.8","30.1","5.4","0.7%","+12%","-8%","-41%","+9%","+8%","+11%","+10.9%","20","0.92","-$2B","VOT|Vanguard Mid-Cap Growth|0.07;IMCG|iShares Morningstar Mid-Cap Growth|0.06;IWP|iShares Russell Mid-Cap Growth|0.23","Mid growth trades at a premium to its history without the mega-cap balance sheets that justify the large-cap premium. It is the least well-supported rich corner of the domestic grid.","Many constituents are unprofitable or thinly profitable, so the multiple rests on forecasts several years out.","Refinancing at higher rates for companies without cash fortresses;Earnings estimates that historically get cut in the second half;Thinner liquidity in drawdowns than large caps","Nov 2025"],
+["usmb","US Mid Blend","US size & style",55,"18.1","24.7","2.8","1.5%","+8%","-6%","-40%","+8%","+8%","+10%","+9.8%","18","0.94","+$4B","VO|Vanguard Mid-Cap|0.04;IJH|iShares Core S&P Mid-Cap|0.05;SPMD|SPDR Portfolio S&P 400|0.03","Sitting almost exactly at its twenty-year median, which is the most honest place on this grid. Mid caps have earnings growth close to large caps at two-thirds the multiple.","The forgotten middle: too small for the index-flow bid, too large to be a small-cap story.","More domestic-revenue exposure, so a US slowdown hits harder;Higher floating-rate debt than large caps;Index turnover pushes winners out into large-cap benchmarks","Nov 2025"],
+["usmv","US Mid Value","US size & style",41,"15.3","20.8","2.1","2.3%","+6%","-7%","-39%","+7%","+8%","+10%","+8.7%","17","0.90","+$1B","VOE|Vanguard Mid-Cap Value|0.07;IJJ|iShares S&P Mid-Cap 400 Value|0.18;IWS|iShares Russell Mid-Cap Value|0.23","Below its own median on a blended multiple, with a dividend yield that actually contributes to total return. Industrials and regional financials lead the weighting.","This is where cheapness and quality still overlap in the domestic market.","Regional bank credit quality, particularly commercial real estate;Cyclical earnings — the multiple looks lowest right before earnings fall;Slow re-rating: cheap can stay cheap for years","Nov 2025"],
+["ussg","US Small Growth","US size & style",62,"22.9","25.6","4.3","0.4%","+10%","-14%","-46%","+5%","+4%","+8%","+8.9%","23","0.87","-$3B","VBK|Vanguard Small-Cap Growth|0.07;IWO|iShares Russell 2000 Growth|0.24;XSMO|Invesco S&P SmallCap Momentum|0.36","The multiple looks moderate only because loss-making constituents are excluded from the ratio. On a whole-index basis this is the least attractive risk-adjusted corner.","Two-fifths of the underlying names do not earn money, which makes the aggregate P/E a flattering statistic.","A large share of unprofitable constituents;Rate sensitivity through floating-rate borrowing;Biotech binary outcomes drive a meaningful part of the index","Nov 2021"],
+["ussb","US Small Blend","US size & style",33,"15.6","19.2","1.9","1.6%","+7%","-11%","-44%","+4%","+5%","+8%","+7.6%","21","0.89","-$1B","IJR|iShares Core S&P Small-Cap|0.06;VB|Vanguard Small-Cap|0.05;SPSM|SPDR Portfolio S&P 600|0.03","Near the cheap end of its own range and roughly a third off large caps on forward earnings. The S&P 600 version screens better than the Russell 2000 because of its profitability requirement.","Small caps have de-rated for four years while earnings held up modestly — the gap is the opportunity.","Refinancing wall over the next 24 months;Domestic-economy sensitivity;Index construction matters more here than in any other slice","Nov 2021"],
+["ussv","US Small Value","US size & style",22,"12.4","15.1","1.3","2.4%","+5%","-12%","-45%","+3%","+6%","+9%","+7.1%","22","0.85","+$2B","AVUV|Avantis US Small Cap Value|0.25;VBR|Vanguard Small-Cap Value|0.07;DFSV|Dimensional US Small Cap Value|0.30","The cheapest domestic slice on the board, at the 22nd percentile of its own history and near book value on aggregate. The discount to large-cap growth is close to the widest since 2000.","Historically, entry points in this decile have preceded strong ten-year real returns — with several painful years inside them.","Balance-sheet fragility: leverage sits highest in this cohort;Long dead periods — the 2010s were a decade of underperformance;Screening on price alone catches genuinely impaired businesses","Nov 2021"],
+["divg","Dividend Growth","Income & dividend",71,"21.0","29.6","4.0","1.7%","+8%","-3%","-33%","+11%","+10%","+11%","+11.2%","14","0.93","+$14B","VIG|Vanguard Dividend Appreciation|0.05;DGRO|iShares Core Dividend Growth|0.08;NOBL|ProShares S&P 500 Dividend Aristocrats|0.35","Quality compounders have become a crowded defensive trade, and the slice now trades above its own historical norm. The yield is low because the price is high.","You are buying reliability, and reliability is currently expensive.","Priced as a bond proxy in parts — sensitive to real rates;Dividend growth screens concentrate in staples and healthcare;Quality premium can compress without any dividend being cut","Feb 2026"],
+["hidiv","High Dividend Yield","Income & dividend",38,"14.2","19.8","2.2","3.6%","+5%","-5%","-36%","+8%","+7%","+9%","+8.4%","13","0.82","+$6B","SCHD|Schwab US Dividend Equity|0.06;VYM|Vanguard High Dividend Yield|0.06;HDV|iShares Core High Dividend|0.08","Modestly below its own median with a yield that covers a real chunk of expected return. Energy, staples and financials carry the weight.","The screen buys yield, so it structurally avoids the expensive end of the market — that is the point, and also the constraint.","Yield screens pick up companies about to cut;Sector concentration in energy and staples;Underperforms badly in narrow growth-led markets","Feb 2026"],
+["intdiv","International Dividend","Income & dividend",24,"11.3","13.9","1.4","4.6%","+6%","-6%","-42%","+12%","+9%","+8%","+5.2%","15","0.76","+$3B","VYMI|Vanguard International High Dividend Yield|0.17;IDV|iShares International Select Dividend|0.49;SCHY|Schwab International Dividend Equity|0.14","A 4.6% yield at the 24th percentile of its own valuation history. Non-US companies pay out more of their earnings, so the yield is structural rather than distressed.","Currency is half the story here — dollar weakness would add to the return, dollar strength would take from it.","Withholding tax drags on the headline yield in taxable accounts;Currency swings can exceed the yield in a single year;Heavier weighting to European banks and telecoms","Jul 2007"],
+["covcall","Covered-Call Income","Income & dividend",57,"19.0","32.5","4.6","7.9%","+9%","-4%","-30%","+9%","+8%","+9%","+8.0%","11","0.85","+$18B","JEPI|JPMorgan Equity Premium Income|0.35;JEPQ|JPMorgan Nasdaq Equity Premium|0.35;DIVO|Amplify CWP Enhanced Dividend|0.56","The distribution is option premium, not earnings — it looks like yield and behaves like sold upside. Underlying equity is priced near the rich end of its history.","Volatility is low, so the premium being harvested is low too. This is the worst environment in which to sell it.","Distribution is not income in the tax sense and can fall sharply;Caps upside in exactly the markets equities need to work;Fees are five to ten times a plain index fund","Feb 2026"],
+["intdev","Developed Markets","International",49,"14.6","19.1","1.9","2.9%","+8%","-4%","-38%","+13%","+11%","+9%","+6.1%","15","0.86","+$22B","VEA|Vanguard FTSE Developed Markets|0.05;IEFA|iShares Core MSCI EAFE|0.07;SPDW|SPDR Portfolio Developed World ex-US|0.03","Right at its own median, and roughly a 35% multiple discount to the US. Part of that discount is composition — fewer software companies, more banks and industrials.","The relevant question is not whether it is cheaper than the US, but whether it is cheap against itself. It is not — it is ordinary.","Currency exposure is unhedged in these funds;Europe and Japan carry demographic and energy-cost headwinds;The discount to the US has persisted for fifteen years","Feb 2026"],
+["intdv","Developed Value","International",27,"11.8","14.6","1.3","4.1%","+7%","-5%","-41%","+15%","+12%","+9%","+5.0%","16","0.82","+$4B","EFV|iShares MSCI EAFE Value|0.34;AVIV|Avantis International Large Cap Value|0.25;IVLU|iShares MSCI Intl Value Factor|0.30","Under twelve times forward earnings at the 27th percentile of its own range, with a yield above four percent. Cheapness on this axis has historically mattered most over five to ten years.","Japanese and European corporate governance reform is a genuine, slow-moving catalyst rather than a story.","Bank-heavy exposure ties returns to European credit;Governance reform can stall for years;Value indices abroad hold more state-influenced companies","Oct 2007"],
+["intsm","Developed Small","International",24,"13.1","15.8","1.2","3.3%","+6%","-12%","-46%","+10%","+7%","+6%","+5.4%","17","0.83","+$1B","AVDV|Avantis International Small Cap Value|0.36;SCZ|iShares MSCI EAFE Small-Cap|0.40;VSS|Vanguard FTSE All-World ex-US Small-Cap|0.08","The most neglected equity slice on the board: small, foreign, and unowned. Trading near book value with a 3.3% yield.","Nobody markets this exposure, which is usually a precondition for it being cheap.","Wide bid-offer spreads and lower liquidity;Domestic-economy exposure in slow-growth countries;Currency adds volatility on top of small-cap volatility","Jun 2021"],
+["japan","Japan","International",58,"16.4","23.7","1.7","2.2%","+9%","-6%","-37%","+14%","+13%","+11%","+7.2%","16","0.70","+$9B","BBJP|JPMorgan BetaBuilders Japan|0.19;EWJ|iShares MSCI Japan|0.50;DXJ|WisdomTree Japan Hedged Equity|0.48","Above its own median after a three-year re-rating driven by buybacks and cross-shareholding unwinds. Still under two times book, which flatters it relative to the multiple.","The reform story is real and is now partly in the price. Hedged and unhedged versions have diverged sharply — pick deliberately.","Yen direction dominates dollar returns;Reform momentum depends on continued exchange pressure;Domestic demographics cap long-run growth","Aug 2026"],
+["europe","Europe","International",44,"14.2","19.6","2.0","3.1%","+7%","-4%","-39%","+14%","+11%","+9%","+5.9%","16","0.85","+$7B","VGK|Vanguard FTSE Europe|0.09;IEUR|iShares Core MSCI Europe|0.09;FEZ|SPDR Euro Stoxx 50|0.29","Slightly below its own median with a 3.1% yield. The index is more global than the continent — a large share of revenue is earned outside Europe.","Cheap enough to be interesting, not cheap enough to be a table-pounder.","Energy input costs remain structurally higher than pre-2022;Bank exposure to sovereign and property credit;Political fragmentation slows fiscal response","Feb 2026"],
+["em","Emerging Markets","International",31,"12.7","14.2","1.7","2.7%","+11%","-9%","-49%","+17%","+9%","+7%","+4.3%","18","0.78","+$12B","IEMG|iShares Core MSCI Emerging Markets|0.09;VWO|Vanguard FTSE Emerging Markets|0.07;SPEM|SPDR Portfolio Emerging Markets|0.07","Just inside the cheap third of its own history, with faster earnings growth than developed markets. Taiwan and Korea semiconductors now drive much of the index.","What you are actually buying has changed: this is closer to a technology hardware index with an Asian domicile than a commodity-exporter basket.","Semiconductor cycle now dominates index earnings;China weight brings policy and geopolitical risk;Dollar strength has historically been the single biggest headwind","Oct 2007"],
+["emv","EM Value","International",15,"9.4","10.3","1.0","4.4%","+9%","-14%","-52%","+16%","+8%","+7%","+3.6%","19","0.74","+$2B","AVES|Avantis Emerging Markets Value|0.36;FNDE|Schwab Fundamental Emerging Markets|0.39;DGS|WisdomTree EM SmallCap Dividend|0.58","The cheapest slice on the entire board — under ten times forward earnings, at book value, at the 15th percentile of its own range. A 4.4% yield is being paid to wait.","Extreme cheapness of this kind is usually compensation for governance, currency and political risk rather than a free lunch. Position sizing is the entire discussion.","State-owned enterprises with shareholders second in line;Currency devaluation can erase local equity gains in dollars;Capital-controls and delisting risk in the tail","Oct 2007"],
+["emxc","EM ex-China","International",47,"15.1","17.9","2.1","2.3%","+12%","-7%","-44%","+15%","+12%","+10%","+6.0%","18","0.76","+$5B","EMXC|iShares MSCI EM ex-China|0.25;XCEM|Columbia EM Core ex-China|0.16;EMXF|iShares ESG Advanced EM ex-China|0.16","Removing China removes the discount: this version trades near its own median because India and Taiwan carry premium multiples. You are paying to avoid a risk, and the price is explicit.","Useful as a governance decision, not a valuation one.","India's multiple is high on any historical measure;Taiwan concentration is a single-industry, single-strait risk;Higher fees than plain EM for the same underlying markets","Feb 2026"],
+["china","China","International",8,"10.1","11.4","1.2","2.9%","+10%","-38%","-60%","+22%","+4%","+2%","+1.9%","26","0.50","-$6B","MCHI|iShares MSCI China|0.59;FXI|iShares China Large-Cap|0.74;KWEB|KraneShares CSI China Internet|0.70","At the 8th percentile of its own twenty-year range and 38% below its all-time high — statistically the deepest discount available. Earnings at the large internet platforms have recovered while the multiple has not.","This is the clearest example on the board of cheap-for-a-reason: the discount is a policy and property-cycle discount, and it can persist or widen regardless of earnings.","Policy intervention can reprice an entire sector overnight;Property-sector deleveraging still working through household balance sheets;Delisting and index-exclusion risk for US-listed holders;Demographics and deflation pressure nominal growth","Feb 2021"],
+["gold","Gold","Real assets",88,"—","—","—","0.0%","—","-1%","-45%","+26%","+19%","+14%","+9.4%","15","0.10","+$31B","GLDM|SPDR Gold MiniShares|0.10;IAU|iShares Gold Trust|0.25;GLD|SPDR Gold Shares|0.40","Real price sits at the 88th percentile of its twenty-year range after central-bank buying and a debasement bid. There are no earnings to grow into the price.","Gold has done its job; the entry point is now the worst it has been outside 2011 and 1980 in real terms.","No cash flow — the entire return is the change in what someone else will pay;Real-rate increases have historically been the main drag;Central-bank demand is policy-driven and can stop abruptly","Aug 2026"],
+["silver","Silver","Real assets",76,"—","—","—","0.0%","—","-6%","-70%","+34%","+22%","+16%","+8.1%","27","0.25","+$6B","SLV|iShares Silver Trust|0.50;SIVR|abrdn Physical Silver|0.30;SIL|Global X Silver Miners|0.65","Half monetary metal, half industrial input, and priced at the high end of its own range but below its 1980 and 2011 peaks. Solar demand has changed the underlying balance.","Expect roughly twice gold's volatility in both directions — that has been true in every cycle.","Industrial demand ties it to the manufacturing cycle;Far more volatile than gold with the same lack of cash flow;Above-ground inventories are opaque","Apr 2011"],
+["bcom","Broad Commodities","Real assets",29,"—","—","—","0.0%","—","-19%","-62%","+4%","+2%","+7%","+1.4%","15","0.35","+$2B","PDBC|Invesco Optimum Yield Diversified Commodity|0.59;COMT|iShares GSCI Commodity Dynamic Roll|0.48;DBC|Invesco DB Commodity Index|0.87","Below its own median and 19% under its all-time high, with the roll yield currently positive in energy. The diversification case is stronger than the return case.","This slice earns its place through low correlation to equities, not through expected return.","Roll cost can quietly consume returns in contango markets;Long dead decades — the 2010s were deeply negative;K-1 versus 1099 tax treatment differs by fund structure","Jun 2008"],
+["energy","Energy Equity","Real assets",26,"12.6","14.4","1.9","3.4%","+2%","-9%","-58%","+6%","+12%","+21%","+6.8%","22","0.60","-$4B","XLE|Energy Select Sector SPDR|0.09;VDE|Vanguard Energy|0.09;XOP|SPDR Oil & Gas Exploration|0.35","Under thirteen times forward earnings at the 26th percentile of its own range, with capital discipline holding and buybacks running. The market is pricing a structural decline in demand.","Free cash flow yields here are the highest of any equity slice on the board, which is either an opportunity or a warning about terminal value.","Terminal-value risk if electrification accelerates;Oil price is the earnings driver and is not forecastable;Capital discipline has historically broken at the top of the cycle","Jun 2014"],
+["gminers","Gold Miners","Real assets",69,"14.8","16.2","2.4","1.4%","+28%","-8%","-66%","+55%","+31%","+19%","+6.2%","33","0.35","+$4B","GDX|VanEck Gold Miners|0.51;RING|iShares MSCI Global Gold Miners|0.39;GDXJ|VanEck Junior Gold Miners|0.52","Miners have finally converted a high gold price into margin, and the multiple has re-rated with it. Above its own median but well below the metal on a percentile basis.","This is leveraged exposure to the gold price minus operational risk — historically a poor long-term hold and a strong cyclical one.","Cost inflation eats the margin the metal creates;Jurisdiction and expropriation risk in several major producers;Equity dilution has destroyed per-share value across cycles","Apr 2011"],
+["copper","Copper & Industrial Metals","Real assets",44,"16.1","18.4","2.0","2.1%","+9%","-11%","-64%","+18%","+9%","+13%","+5.5%","28","0.55","+$3B","COPX|Global X Copper Miners|0.65;PICK|iShares MSCI Global Metals & Mining|0.39;CPER|United States Copper Index|0.97","Near its own median, with a supply picture — few new large deposits, long permitting timelines — that is more compelling than the current multiple.","The electrification demand story is real but slower than headlines imply; the supply constraint is the more reliable half of the thesis.","Chinese construction demand still sets the marginal price;Mine-development timelines mean supply responses arrive years late;Deeply cyclical earnings make the P/E misleading at turns","Mar 2022"]
+];
+
+const FIELDS = ["key","name","group","pct","fwdPE","cape","pb","yld","eps","ath","dd","r1","r3","r5","r10","vol","corr","flow","etfs","take","take2","risks","athDate"];
+const SLICES = D.map(a => {
+  const o = {}; FIELDS.forEach((f, i) => o[f] = a[i]);
+  o.etfList = o.etfs.split(";").map(s => { const p = s.split("|"); return { ticker: p[0], name: p[1], er: p[2] }; });
+  o.riskList = o.risks.split(";").map((t, i) => ({ n: String(i + 1).padStart(2, "0"), text: t }));
+  return o;
+});
+const BY = {}; SLICES.forEach(s => BY[s.key] = s);
+
+function verdict(p) { return p < 30 ? "CHEAP" : p > 70 ? "RICH" : "FAIR"; }
+function ink(p) { return p < 30 ? "#2c455d" : p < 50 ? "#416180" : p < 70 ? "#749dc4" : p < 85 ? "#b7b7ba" : "#d4d4d7"; }
+function textInk(p) { return p < 30 ? "#2c455d" : p < 50 ? "#416180" : p < 70 ? "#597ea3" : "#7a7a7d"; }
+function pctLine(p) { return p >= 50 ? `Only ${100 - p}% of the last 20 years was more expensive than today.` : `Cheaper than today in only ${p}% of the last 20 years.`; }
+function tagStyle(p) {
+  const v = verdict(p);
+  const base = { font: "600 9.5px var(--font-body)", letterSpacing: ".1em", padding: "3px 6px", flex: "none", whiteSpace: "nowrap" };
+  if (v === "CHEAP") return Object.assign({}, base, { background: "var(--color-accent)", color: "#fff" });
+  if (v === "FAIR") return Object.assign({}, base, { background: "var(--color-accent-200)", color: "var(--color-accent-800)" });
+  return Object.assign({}, base, { border: "1px solid var(--color-neutral-700)", color: "var(--color-neutral-800)", padding: "2px 5px" });
+}
+function rng(seed) { let s = seed % 2147483647; if (s <= 0) s += 2147483646; return () => (s = s * 16807 % 2147483647) / 2147483647; }
+function hash(k) { let h = 7; for (let i = 0; i < k.length; i++) h = (h * 31 + k.charCodeAt(i)) % 100000; return h; }
+function series(key, pct, n) {
+  const r = rng(hash(key) + 13), out = []; let v = 50 + (r() - 0.5) * 40;
+  for (let i = 0; i < n; i++) { v += (r() - 0.5) * 22 + (50 - v) * 0.06; out.push(v); }
+  const shift = pct - out[n - 1];
+  return out.map((x, i) => Math.max(3, Math.min(97, x + shift * (i / (n - 1)) ** 0.6)));
+}
+function poly(vals, w, h) {
+  const n = vals.length;
+  return vals.map((v, i) => `${(i / (n - 1) * w).toFixed(1)},${(h - v / 100 * h).toFixed(1)}`).join(" ");
+}
+
+const FILTERS = [
+  { id: "all", label: "All" },
+  { id: "US size & style", label: "US" },
+  { id: "International", label: "Intl" },
+  { id: "Income & dividend", label: "Income" },
+  { id: "Real assets", label: "Real assets" }
+];
+const TABS = [
+  { id: "ranks", label: "Ranks", icon: "M3 3v16a2 2 0 0 0 2 2h16M18 17V9M13 17V5M8 17v-3" },
+  { id: "map", label: "Map", icon: "M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" },
+  { id: "watch", label: "Watch", icon: "M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0M15 12a3 3 0 1 0-6 0 3 3 0 0 0 6 0" },
+  { id: "notes", label: "Notes", icon: "M2 6h4M2 10h4M2 14h4M2 18h4M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2M9.5 8h8M9.5 12h6" }
+];
+
+const FEED = [
+  { key: "china", date: "22 Aug", head: "China slips to the 8th percentile", body: "Platform earnings rose again while the index did not. The valuation gap versus its own history is now the widest of any slice we track, which reflects policy risk rather than any change in reported profitability." },
+  { key: "gold", date: "21 Aug", head: "Gold's real price enters the top decile", body: "Continued official-sector buying has pushed the inflation-adjusted price to the 88th percentile of twenty years. Nothing about the metal has changed; what you pay for it has." },
+  { key: "ussv","date": "19 Aug", head: "Small value holds below the 25th percentile", body: "A fourth consecutive quarter under the 25th percentile. Aggregate price-to-book is 1.3 against a twenty-year median near 1.9, with leverage — not earnings — the main reason the discount persists." },
+  { key: "japan", date: "15 Aug", head: "Japan crosses above its median", body: "Three years of buyback-led re-rating have taken Japan past the 50th percentile for the first time since 2007. The governance story is now partly priced." },
+  { key: "uslg", date: "12 Aug", head: "Large growth sets a new valuation high", body: "Forward earnings rose, and the price rose faster. At the 96th percentile the slice has spent less than one year of the last twenty at a higher multiple." }
+];
+const WATCH = [
+  { key: "ussv", trigger: 20, note: "Two points from your alert. Aggregate price-to-book has not been lower since 2020." },
+  { key: "intdev", trigger: 35, note: "Median-priced. Waiting for a discount before adding to the core international position." },
+  { key: "energy", trigger: 25, note: "Alert fired 6 Aug. Free cash flow yield near 9% with buybacks running." },
+  { key: "gold", trigger: 60, note: "Watching for a pullback, not an entry. Currently 28 points above your threshold." }
+];
+
+class Component extends DCLogic {
+  state = { tab: "ranks", filter: "all", detail: null, about: false };
+  go(tab) { this.setState({ tab, detail: null, about: false }); }
+  open(key) { this.setState({ detail: key, tab: "ranks", about: false }); }
+
+  renderVals() {
+    const p = this.props;
+    const viz = p.signalViz ?? "bar";
+    const compact = (p.density ?? "comfortable") === "compact";
+    const showBadges = p.verdictBadges ?? true;
+    const narrative = (p.commentaryStyle ?? "verdict-first") === "narrative";
+    const st = this.state;
+    const sorted = SLICES.slice().sort((a, b) => a.pct - b.pct);
+
+    const rows = sorted.filter(s => st.filter === "all" || s.group === st.filter).map((s, i) => {
+      const sp = series(s.key, s.pct, 40);
+      return {
+        rank: String(i + 1).padStart(2, "0"), name: s.name, group: s.group, pct: s.pct,
+        fwdPE: s.fwdPE, yld: s.yld, verdict: verdict(s.pct), ink: textInk(s.pct),
+        open: () => this.open(s.key),
+        rowStyle: { display: "flex", gap: "12px", alignItems: "flex-start", padding: compact ? "9px 18px" : "14px 18px", borderBottom: "1px solid var(--color-divider)", cursor: "pointer" },
+        tagStyle: tagStyle(s.pct),
+        barStyle: { position: "absolute", inset: "0 auto 0 0", width: s.pct + "%", background: ink(s.pct) },
+        pctStyle: { fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: compact ? "22px" : "26px", lineHeight: 1, color: textInk(s.pct) },
+        spark: poly(sp, 240, 30), sparkEndY: (30 - sp[sp.length - 1] / 100 * 30).toFixed(1),
+        dash: `${(s.pct / 100 * 106.8).toFixed(1)} 106.8`
+      };
+    });
+
+    const cell = s => ({
+      label: s.pct, open: () => this.open(s.key),
+      style: { background: ink(s.pct), color: s.pct < 50 ? "#fff" : "var(--color-neutral-900)", fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "19px", height: "54px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }
+    });
+    const namedCell = s => ({
+      label: s.name.replace("Developed ", "Dev ").replace("International ", "Intl "), open: () => this.open(s.key),
+      style: { background: ink(s.pct), color: s.pct < 50 ? "#fff" : "var(--color-neutral-900)", fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: "13px", letterSpacing: ".02em", height: "48px", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 10px", cursor: "pointer" }
+    });
+    const withPct = s => { const c = namedCell(s); c.name = c.label; c.pct = s.pct; return c; };
+
+    const rowLabel = t => ({ label: t, open: () => {}, style: { fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: "11px", letterSpacing: ".1em", textTransform: "uppercase", color: "var(--color-neutral-600)", display: "flex", alignItems: "center", justifyContent: "flex-end", paddingRight: "8px", height: "54px" } });
+    const styleBox = [];
+    [["Large", ["uslv", "uslb", "uslg"]], ["Mid", ["usmv", "usmb", "usmg"]], ["Small", ["ussv", "ussb", "ussg"]]].forEach(([lbl, keys]) => {
+      styleBox.push(rowLabel(lbl)); keys.forEach(k => styleBox.push(cell(BY[k])));
+    });
+
+    const cur = st.detail ? BY[st.detail] : SLICES[0];
+    const dSeries = series(cur.key, cur.pct, 80);
+    const d = {
+      name: cur.name, group: cur.group, pct: cur.pct, line: pctLine(cur.pct), verdict: verdict(cur.pct),
+      ath: cur.ath, athDate: cur.athDate, dd: cur.dd, take: cur.take, take2: cur.take2,
+      risks: cur.riskList, etfs: cur.etfList,
+      tagStyle: Object.assign(tagStyle(cur.pct), { font: "600 11px var(--font-body)", padding: "4px 8px", display: "inline-block" }),
+      bigStyle: { fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "76px", lineHeight: .8, letterSpacing: "-.02em", color: textInk(cur.pct) },
+      chart: poly(dSeries, 330, 120), chartEndY: (120 - dSeries[dSeries.length - 1] / 100 * 120).toFixed(1),
+      metrics: [
+        { label: "Forward P/E", val: cur.fwdPE, sub: "next 12m" },
+        { label: "CAPE", val: cur.cape, sub: "10y real" },
+        { label: "Price / book", val: cur.pb, sub: "aggregate" },
+        { label: "Dividend yield", val: cur.yld, sub: "trailing" },
+        { label: "Earnings growth", val: cur.eps, sub: "est. 12m" },
+        { label: "Volatility", val: cur.vol, sub: "% annual" },
+        { label: "Corr. to S&P 500", val: cur.corr, sub: "5y weekly" },
+        { label: "Fund flows", val: cur.flow, sub: "12 months" }
+      ],
+      returns: [{ label: "1 yr", val: cur.r1 }, { label: "3 yr", val: cur.r3 }, { label: "5 yr", val: cur.r5 }, { label: "10 yr", val: cur.r10 }]
+    };
+
+    const cheapest = sorted[0], richest = sorted[sorted.length - 1];
+
+    return {
+      today: "22 Aug 2026",
+      isRanks: st.tab === "ranks" && !st.detail && !st.about, isMap: st.tab === "map" && !st.detail && !st.about,
+      isWatch: st.tab === "watch" && !st.detail && !st.about, isNotes: st.tab === "notes" && !st.detail && !st.about,
+      isDetail: !!st.detail && !st.about, isAbout: st.about,
+      goAbout: () => this.setState({ about: true }),
+      vizBar: viz === "bar", vizSpark: viz === "spark", vizDial: viz === "dial", notDial: viz !== "dial",
+      showBadges, narrative,
+      goRanks: () => this.go("ranks"), goMap: () => this.go("map"), goWatch: () => this.go("watch"),
+      goNotes: () => this.go("notes"), goDetail: () => this.open("ussv"), back: () => this.setState({ detail: null, about: false }),
+      rows, d, styleBox,
+      mapIncome: SLICES.filter(s => s.group === "Income & dividend").map(withPct),
+      mapIntl: SLICES.filter(s => s.group === "International").map(withPct),
+      mapReal: SLICES.filter(s => s.group === "Real assets").map(withPct),
+      statCheap: cheapest.name, statRich: richest.name,
+      statCount: SLICES.filter(s => s.pct < 30).length, statTotal: SLICES.length,
+      filters: FILTERS.map(f => ({
+        label: f.label, on: () => this.setState({ filter: f.id }),
+        style: { flex: "1 0 auto", padding: "11px 14px", background: st.filter === f.id ? "var(--color-accent)" : "transparent", color: st.filter === f.id ? "#fff" : "var(--color-neutral-700)", border: "none", borderRight: "1px solid var(--color-divider)", font: "600 10.5px var(--font-body)", letterSpacing: ".12em", textTransform: "uppercase", cursor: "pointer", whiteSpace: "nowrap" }
+      })),
+      tabs: TABS.map(t => ({
+        label: t.label, icon: t.icon, on: () => this.go(t.id),
+        style: { display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "6px", background: st.tab === t.id && !st.detail ? "var(--color-accent-100)" : "transparent", color: st.tab === t.id && !st.detail ? "var(--color-accent-800)" : "var(--color-neutral-600)", border: "none", borderRight: "1px solid var(--color-divider)", cursor: "pointer" }
+      })),
+      feed: FEED.map(n => ({
+        slice: BY[n.key].name, date: n.date, head: n.head, body: n.body,
+        open: () => this.open(n.key), tagStyle: tagStyle(BY[n.key].pct)
+      })),
+      watch: WATCH.map(w => {
+        const s = BY[w.key];
+        return {
+          name: s.name, pct: s.pct, trigger: w.trigger, note: w.note,
+          status: s.pct <= w.trigger ? "Triggered" : (s.pct - w.trigger) + " pts away",
+          open: () => this.open(w.key),
+          pctStyle: { fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: "26px", lineHeight: 1, color: textInk(s.pct) },
+          barStyle: { position: "absolute", left: 0, bottom: 0, top: "10px", width: s.pct + "%", background: ink(s.pct) },
+          markStyle: { position: "absolute", left: w.trigger + "%", top: 0, bottom: "-4px", width: "1px", background: "var(--color-text)" }
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>
