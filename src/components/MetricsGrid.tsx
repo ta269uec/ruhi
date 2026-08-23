@@ -8,11 +8,13 @@ interface Metric {
 }
 
 function metricsFor(slice: Slice): Metric[] {
+  const yieldLabel = slice.group === "Fixed income" ? "Yield to maturity" : "Dividend yield";
+  const yieldSub = slice.group === "Fixed income" ? "current" : "trailing";
   return [
     { label: "Forward P/E", val: slice.fwdPE, sub: "next 12m" },
     { label: "CAPE", val: slice.cape, sub: "10y real" },
     { label: "Price / book", val: slice.pb, sub: "aggregate" },
-    { label: "Dividend yield", val: slice.yld, sub: "trailing" },
+    { label: yieldLabel, val: slice.yld, sub: yieldSub },
     { label: "Earnings growth", val: slice.eps, sub: "est. 12m" },
     { label: "Volatility", val: slice.vol, sub: "% annual" },
     { label: "Corr. to S&P 500", val: slice.corr, sub: "5y weekly" },

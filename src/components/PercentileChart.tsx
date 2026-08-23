@@ -5,7 +5,14 @@ import styles from "./PercentileChart.module.css";
 const W = 330;
 const H = 120;
 
-export function PercentileChart({ sliceKey, pct }: { sliceKey: string; pct: number }) {
+interface PercentileChartProps {
+  sliceKey: string;
+  pct: number;
+  historyStartYear: number;
+  years: number;
+}
+
+export function PercentileChart({ sliceKey, pct, historyStartYear, years }: PercentileChartProps) {
   const points = useMemo(() => {
     const series = percentileSeries(sliceKey, pct, 80);
     return { poly: toPolyline(series, W, H), endY: H - (series[series.length - 1] / 100) * H };
@@ -14,8 +21,8 @@ export function PercentileChart({ sliceKey, pct }: { sliceKey: string; pct: numb
   return (
     <div className={styles.section}>
       <div className={styles.headRow}>
-        <div className={styles.kicker}>Valuation percentile · 20 years</div>
-        <div className={styles.range}>2006 — now</div>
+        <div className={styles.kicker}>Valuation percentile · {years} years</div>
+        <div className={styles.range}>{historyStartYear} — now</div>
       </div>
       <svg viewBox={`0 0 ${W} ${H}`} className={styles.svg}>
         <rect x="0" y="30" width={W} height="60" fill="var(--color-accent-100)" />

@@ -25,7 +25,7 @@ export function RanksScreen() {
       <ScreenHeader
         title="CHEAPEST FIRST"
         meta={asOf ?? undefined}
-        explainer="Valuation percentile vs. each slice's own 20-year range. Low = cheap versus its own history."
+        explainer="Valuation percentile vs. each slice's own history. Low = cheap, high = rich."
       />
       <DataStateGate>
         {({ slices }) => {
@@ -49,9 +49,10 @@ export function RanksScreen() {
                 ))}
               </div>
               <div className={styles.footnote}>
-                Percentiles computed on forward P/E, CAPE and price/book blended equally, versus the slice's own
-                history since 2006. Real-asset slices use price and cost-curve percentiles instead of earnings
-                multiples. Illustrative data.
+                Percentiles computed on forward P/E, CAPE and price/book blended equally, against each slice's own
+                history since 2006 (2013 for bitcoin). Real-asset and crypto slices use price percentiles instead
+                of earnings multiples; fixed-income slices rank on yield, inverted, since a higher yield means a
+                lower price. Illustrative data.
               </div>
             </>
           );

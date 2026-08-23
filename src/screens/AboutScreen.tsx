@@ -28,9 +28,9 @@ export function AboutScreen() {
           </div>
           <div className={styles.paragraph}>
             So Ruhi does one thing. It takes every slice of the market — the nine US size and style boxes, dividend
-            and income, international developed and emerging, gold, silver, energy and the rest — and asks how
-            expensive each one is today relative to its own twenty-year history. Not against each other. Against
-            itself.
+            and income, international developed and emerging, fixed income from bills to munis, gold, silver,
+            energy, bitcoin and the rest — and asks how expensive each one is today relative to its own history.
+            Not against each other. Against itself.
           </div>
           <div className={styles.paragraph}>
             Then it says so in plain English: what you are buying, why it is priced where it is, what could go
@@ -49,9 +49,11 @@ export function AboutScreen() {
         <div className={styles.method}>
           <div className={styles.methodHeading}>Method</div>
           <div className={styles.methodBody}>
-            Each slice is ranked against its own history since 2006 on forward P/E, CAPE and price-to-book, equally
-            weighted. Real-asset slices use real price and cost-curve percentiles instead of earnings multiples.
-            Below the 30th percentile is Cheap, above the 70th is Rich.
+            Most slices are ranked against their own history since 2006 on forward P/E, CAPE and price-to-book,
+            equally weighted. Real-asset and crypto slices use real price percentiles instead of earnings
+            multiples — bitcoin's history starts in 2013, the earliest point with a meaningful market to rank
+            against. Fixed-income slices rank on yield, inverted, since a higher yield means a lower price. Below
+            the 30th percentile is Cheap, above the 70th is Rich.
           </div>
         </div>
 

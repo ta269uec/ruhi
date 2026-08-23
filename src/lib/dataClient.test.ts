@@ -15,7 +15,7 @@ describe("isValidPayload", () => {
     expect(
       isValidPayload({
         asOf: "1 Jan 2026",
-        slices: [{ key: "x", name: "X", group: "Real assets", pct: 50, etfs: [], risks: [] }],
+        slices: [{ key: "x", name: "X", group: "Real assets", pct: 50, historyStartYear: 2006, etfs: [], risks: [] }],
       }),
     ).toBe(true);
   });
@@ -34,15 +34,28 @@ describe("isValidPayload", () => {
     ["slices not an array", { asOf: "1 Jan 2026", slices: "nope" }],
     [
       "a slice missing pct",
-      { asOf: "1 Jan 2026", slices: [{ key: "x", name: "X", group: "Real assets", etfs: [], risks: [] }] },
+      {
+        asOf: "1 Jan 2026",
+        slices: [{ key: "x", name: "X", group: "Real assets", historyStartYear: 2006, etfs: [], risks: [] }],
+      },
     ],
     [
       "a slice with pct out of range",
-      { asOf: "1 Jan 2026", slices: [{ key: "x", name: "X", group: "Real assets", pct: 150, etfs: [], risks: [] }] },
+      {
+        asOf: "1 Jan 2026",
+        slices: [{ key: "x", name: "X", group: "Real assets", pct: 150, historyStartYear: 2006, etfs: [], risks: [] }],
+      },
     ],
     [
       "a slice with etfs not an array",
-      { asOf: "1 Jan 2026", slices: [{ key: "x", name: "X", group: "Real assets", pct: 50, etfs: {}, risks: [] }] },
+      {
+        asOf: "1 Jan 2026",
+        slices: [{ key: "x", name: "X", group: "Real assets", pct: 50, historyStartYear: 2006, etfs: {}, risks: [] }],
+      },
+    ],
+    [
+      "a slice missing historyStartYear",
+      { asOf: "1 Jan 2026", slices: [{ key: "x", name: "X", group: "Real assets", pct: 50, etfs: [], risks: [] }] },
     ],
   ])("rejects %s", (_label, value) => {
     expect(isValidPayload(value)).toBe(false);

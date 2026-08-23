@@ -25,6 +25,7 @@ function isValidSlice(value: unknown): value is Slice {
     typeof s.pct === "number" &&
     s.pct >= 0 &&
     s.pct <= 100 &&
+    typeof s.historyStartYear === "number" &&
     Array.isArray(s.etfs) &&
     Array.isArray(s.risks)
   );

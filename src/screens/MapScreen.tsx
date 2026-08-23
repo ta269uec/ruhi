@@ -18,30 +18,47 @@ export function MapScreen() {
         {({ slices, by }) => {
           const income = slices.filter((s) => s.group === "Income & dividend");
           const intl = slices.filter((s) => s.group === "International");
+          const fixedIncome = slices.filter((s) => s.group === "Fixed income");
           const real = slices.filter((s) => s.group === "Real assets");
+          const crypto = slices.filter((s) => s.group === "Crypto");
           return (
-            <div className={styles.grid}>
-              <div className={styles.blockFirst}>
-                <div className={`kicker ${styles.heading}`}>US size &amp; style</div>
-                <StyleBox by={by} />
+            <>
+              <div className={styles.grid}>
+                <div className={styles.blockFull}>
+                  <div className={`kicker ${styles.heading}`}>US size &amp; style</div>
+                  <StyleBox by={by} />
+                </div>
+
+                <div className={styles.block}>
+                  <div className={`kicker ${styles.heading}`}>Income &amp; dividend</div>
+                  <NamedMapGrid slices={income} />
+                </div>
+
+                <div className={styles.block}>
+                  <div className={`kicker ${styles.heading}`}>International</div>
+                  <NamedMapGrid slices={intl} />
+                </div>
+
+                <div className={styles.block}>
+                  <div className={`kicker ${styles.heading}`}>Fixed income</div>
+                  <NamedMapGrid slices={fixedIncome} />
+                </div>
+
+                <div className={styles.block}>
+                  <div className={`kicker ${styles.heading}`}>Real assets</div>
+                  <NamedMapGrid slices={real} />
+                </div>
+
+                <div className={styles.block}>
+                  <div className={`kicker ${styles.heading}`}>Crypto</div>
+                  <NamedMapGrid slices={crypto} />
+                </div>
               </div>
 
-              <div className={styles.block}>
-                <div className={`kicker ${styles.heading}`}>Income &amp; dividend</div>
-                <NamedMapGrid slices={income} />
-              </div>
-
-              <div className={styles.block}>
-                <div className={`kicker ${styles.heading}`}>International</div>
-                <NamedMapGrid slices={intl} />
-              </div>
-
-              <div className={styles.blockLast}>
-                <div className={`kicker ${styles.heading}`}>Real assets</div>
-                <NamedMapGrid slices={real} />
+              <div className={styles.legendBlock}>
                 <CheapRichLegend />
               </div>
-            </div>
+            </>
           );
         }}
       </DataStateGate>

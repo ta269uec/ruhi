@@ -14,7 +14,7 @@ const NARRATIVE_MODE = false; // "verdict-first" default — see README §Slice 
 
 export function SliceDetailScreen() {
   const { key } = useParams<{ key: string }>();
-  const { by, status } = useSliceData();
+  const { by, status, asOf } = useSliceData();
   const slice = key ? by[key] : undefined;
 
   if (status === "loading") {
@@ -45,6 +45,8 @@ export function SliceDetailScreen() {
   }
 
   const v = verdict(slice.pct);
+  const asOfYear = asOf ? Number(asOf.slice(-4)) : new Date().getFullYear();
+  const years = Math.max(1, asOfYear - slice.historyStartYear);
   const returns = [
     { label: "1 yr", val: slice.r1 },
     { label: "3 yr", val: slice.r3 },
@@ -65,12 +67,12 @@ export function SliceDetailScreen() {
             </div>
             <div className={styles.verdictCol}>
               <VerdictBadge verdict={v} size="lg" />
-              <div className={styles.line}>{pctLine(slice.pct)}</div>
+              <div className={styles.line}>{pctLine(slice.pct, years)}</div>
             </div>
           </div>
         </div>
 
-        <PercentileChart sliceKey={slice.key} pct={slice.pct} />
+        <PercentileChart sliceKey={slice.key} pct={slice.pct} historyStartYear={slice.historyStartYear} years={years} />
 
         <div className={styles.pair}>
           <div className={styles.pairCell}>
@@ -79,7 +81,7 @@ export function SliceDetailScreen() {
             <div className={styles.pairSub}>ATH {slice.athDate}</div>
           </div>
           <div className={styles.pairCell}>
-            <div className={styles.pairLabel}>Worst drawdown, 20y</div>
+            <div className={styles.pairLabel}>Worst drawdown, {years}y</div>
             <div className={styles.pairValue}>{slice.dd}</div>
             <div className={styles.pairSub}>Peak to trough</div>
           </div>

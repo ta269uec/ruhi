@@ -2,12 +2,12 @@
   padding: 14px 20px 6px;
 }
 
-.blockFirst {
+.blockFull {
   padding: 18px 20px 8px;
 }
 
-.blockLast {
-  padding: 14px 20px 24px;
+.legendBlock {
+  padding: 8px 20px 24px;
 }
 
 .heading {
@@ -15,8 +15,10 @@
 }
 
 @media (min-width: 1024px) {
-  /* US size & style and Real assets (with the legend) stay full width;
-     Income and International pair up in the space that frees. */
+  /* US size & style stays full width; the rest pair up two-per-row in the
+     space that frees (an odd count leaves the last one alone, which is
+     fine — it's a small block). The legend lives outside .grid entirely,
+     always full width at the very end. */
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -24,8 +26,7 @@
     align-items: start;
   }
 
-  .blockFirst,
-  .blockLast {
+  .blockFull {
     grid-column: 1 / -1;
   }
 }

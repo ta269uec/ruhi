@@ -1,4 +1,10 @@
-export type Group = "US size & style" | "Income & dividend" | "International" | "Real assets";
+export type Group =
+  | "US size & style"
+  | "Income & dividend"
+  | "International"
+  | "Real assets"
+  | "Fixed income"
+  | "Crypto";
 export type Verdict = "CHEAP" | "FAIR" | "RICH";
 
 export interface Etf {
@@ -11,15 +17,16 @@ export interface Slice {
   key: string;
   name: string;
   group: Group;
-  pct: number; // 0-100 valuation percentile vs. own 20y history
+  pct: number; // 0-100 valuation percentile vs. own history — see historyStartYear
+  historyStartYear: number; // first year of the percentile history window (2006 for most; later for slices without 20y of data, e.g. crypto)
   fwdPE: string;
   cape: string;
-  pb: string; // "—" for real assets with no earnings
-  yld: string;
+  pb: string; // "—" for slices with no earnings (real assets, fixed income, crypto)
+  yld: string; // dividend yield for equities; yield-to-maturity for fixed income
   eps: string; // est. 12m earnings growth
   ath: string; // distance from all-time high
   athDate: string;
-  dd: string; // worst 20y drawdown
+  dd: string; // worst drawdown within the history window
   r1: string;
   r3: string;
   r5: string;

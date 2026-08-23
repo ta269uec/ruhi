@@ -17,9 +17,12 @@ export function textInk(pct: number): string {
 /**
  * The detail-page sentence, and the single most likely place to get this backwards:
  * below 50 it's framed from the cheap side, at/above 50 from the expensive side.
+ * `years` defaults to 20 — most slices have a full 20-year history, but a
+ * younger one (e.g. crypto) must say its real window, not imply one it
+ * doesn't have.
  */
-export function pctLine(pct: number): string {
+export function pctLine(pct: number, years = 20): string {
   return pct >= 50
-    ? `Only ${100 - pct}% of the last 20 years was more expensive than today.`
-    : `Cheaper than today in only ${pct}% of the last 20 years.`;
+    ? `Only ${100 - pct}% of the last ${years} years was more expensive than today.`
+    : `Cheaper than today in only ${pct}% of the last ${years} years.`;
 }
