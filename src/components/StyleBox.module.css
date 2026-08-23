@@ -4,7 +4,7 @@
   gap: 1px;
 }
 
-@media (min-width: 1024px) {
+@container ruhi (min-width: 1024px) {
   /* Full desktop width would stretch each value column absurdly wide
      relative to the 54px cell height — cap it near its mobile proportions. */
   .grid {

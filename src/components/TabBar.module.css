@@ -6,7 +6,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-@media (min-width: 1024px) {
+@container ruhi (min-width: 1024px) {
   /* The Sidebar carries navigation at this width. */
   .bar {
     display: none;

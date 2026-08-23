@@ -3,6 +3,24 @@
   background: var(--color-bg);
   display: flex;
   justify-content: center;
+  /* Every desktop-breakpoint rule in the app queries this container's width,
+     not the viewport's — that's what lets the layout-mode override below
+     force one layout or the other regardless of the real window size. */
+  container-type: inline-size;
+  container-name: ruhi;
+}
+
+/* Layout-mode override (see LayoutModeContext): pins this container's own
+   width so descendant `@container ruhi (min-width: 1024px)` rules everywhere
+   else activate or don't, independent of the real viewport. "auto" sets
+   neither and behaves exactly as plain responsive design would. */
+.ground[data-force-layout="mobile"] {
+  max-width: var(--app-max-width);
+  margin: 0 auto;
+}
+
+.ground[data-force-layout="desktop"] {
+  min-width: 1024px;
 }
 
 .column {
@@ -21,7 +39,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@container ruhi (min-width: 1024px) {
   .ground {
     justify-content: stretch;
   }

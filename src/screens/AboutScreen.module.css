@@ -87,7 +87,7 @@
   color: var(--color-neutral-600);
 }
 
-@media (min-width: 1024px) {
+@container ruhi (min-width: 1024px) {
   /* Brand copy reads as an article, not a dashboard — cap the line length. */
   .page {
     max-width: 640px;

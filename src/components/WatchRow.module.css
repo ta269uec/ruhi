@@ -3,7 +3,7 @@
   border-bottom: 1px solid var(--color-divider);
 }
 
-@media (min-width: 1024px) {
+@container ruhi (min-width: 1024px) {
   /* The grid's own 1px gap (see WatchScreen's .rowsGrid) draws the hairlines
      between cards, matching the RankRow desktop treatment. */
   .row {

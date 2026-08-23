@@ -6,7 +6,7 @@
   border-top: 1px solid var(--color-divider);
 }
 
-@media (min-width: 1024px) {
+@container ruhi (min-width: 1024px) {
   /* A single column stretched to full desktop width reads badly — reflow
      rows into a card grid instead, roughly at the row's original mobile
      proportions per card. */

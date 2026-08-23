@@ -23,7 +23,7 @@
   border-right: none;
 }
 
-@media (min-width: 1024px) {
+@container ruhi (min-width: 1024px) {
   /* Evenly-stretched segments look right on a narrow column; on a wide
      desktop row they'd balloon into oversized pills, so cap them instead. */
   .option {

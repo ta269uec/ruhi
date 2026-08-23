@@ -1,4 +1,4 @@
-@media (min-width: 1024px) {
+@container ruhi (min-width: 1024px) {
   .rowsGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));

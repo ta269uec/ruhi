@@ -14,7 +14,7 @@
   margin-bottom: 9px;
 }
 
-@media (min-width: 1024px) {
+@container ruhi (min-width: 1024px) {
   /* US size & style stays full width; the rest pair up two-per-row in the
      space that frees (an odd count leaves the last one alone, which is
      fine — it's a small block). The legend lives outside .grid entirely,

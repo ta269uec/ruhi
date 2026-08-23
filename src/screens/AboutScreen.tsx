@@ -2,6 +2,7 @@ import { BackBar } from "../components/BackBar";
 import { RangeMark } from "../components/RangeMark";
 import { Wordmark } from "../components/Wordmark";
 import { InstallHint } from "../components/InstallHint";
+import { LayoutToggle } from "../components/LayoutToggle";
 import styles from "./AboutScreen.module.css";
 
 export function AboutScreen() {
@@ -45,6 +46,8 @@ export function AboutScreen() {
         </div>
 
         <InstallHint />
+
+        <LayoutToggle />
 
         <div className={styles.method}>
           <div className={styles.methodHeading}>Method</div>

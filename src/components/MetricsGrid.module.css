@@ -23,7 +23,7 @@
   padding: 11px 12px;
 }
 
-@media (min-width: 1024px) {
+@container ruhi (min-width: 1024px) {
   /* Within the detail page's capped reading width, 4 columns fits comfortably
      and halves the section's height. */
   .grid {
