@@ -8,7 +8,10 @@ export interface DataPayload {
 // Placeholder location: today this is the same illustrative sample data,
 // served as a runtime-fetchable file instead of bundled into the JS. Point
 // VITE_DATA_URL at a real feed later — no app code changes required.
-const DATA_URL = import.meta.env.VITE_DATA_URL ?? "/data/slices.json";
+// BASE_URL already carries a trailing slash (e.g. "/" or "/ruhi/"), so this
+// resolves correctly whether the app is deployed at a domain root or under
+// a subpath like a GitHub Pages project site.
+const DATA_URL = import.meta.env.VITE_DATA_URL ?? `${import.meta.env.BASE_URL}data/slices.json`;
 const CACHE_KEY = "ruhi:data-cache";
 
 function isValidSlice(value: unknown): value is Slice {

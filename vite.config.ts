@@ -2,8 +2,12 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// https://vite.dev/config/
-export default defineConfig({
+// Project GitHub Pages sites are served from /<repo>/, not the domain root.
+// Keep the dev server at "/" for a normal local workflow; the production
+// build AND `vite preview` (which serves that same build) both need the
+// subpath — `command` alone doesn't distinguish preview from dev, hence isPreview.
+export default defineConfig(({ command, isPreview }) => ({
+  base: command === 'build' || isPreview ? '/ruhi/' : '/',
   plugins: [
     react(),
     VitePWA({
@@ -36,9 +40,11 @@ export default defineConfig({
         // first for the freshest numbers, fall back to the last successful
         // response when offline. This is "cache the last successful data
         // payload" from the README, now that data isn't bundled into the JS.
+        // Matched by suffix (not a fixed path) so it works under the /ruhi/
+        // GitHub Pages base as well as a root deployment.
         runtimeCaching: [
           {
-            urlPattern: ({ url }) => url.pathname === '/data/slices.json',
+            urlPattern: ({ url }) => url.pathname.endsWith('/data/slices.json'),
             handler: 'NetworkFirst',
             options: {
               cacheName: 'ruhi-data',
@@ -50,4 +56,4 @@ export default defineConfig({
       },
     }),
   ],
-})
+}))
